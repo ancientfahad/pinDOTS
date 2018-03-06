@@ -766,6 +766,147 @@ void off() {
 void Check() {
   
   //A
+  if(btn1 == LOW && btn2 == HIGH && btn3 == HIGH && btn4 == HIGH && btn5 == HIGH && btn6 == HIGH){
+    changeDotState("100000");
+    Serial.println("A");
+  }
+  
+  //B
+  else if(btn1 == LOW && btn2 == LOW && btn3 == HIGH && btn4 == HIGH && btn5 == HIGH && btn6 == HIGH){
+    changeDotState("110000");
+    Serial.println("B");
+  }
+  //C
+  else if(btn1 == LOW && btn2 == HIGH && btn3 == HIGH && btn4 == LOW && btn5 == HIGH && btn6 == HIGH){
+    changeDotState("100100");
+    Serial.println("C");
+  }
+  
+  //D
+  else if(btn1 == LOW && btn2 == HIGH && btn3 == HIGH && btn4 == LOW && btn5 == LOW && btn6 == HIGH){
+    changeDotState("100110");
+    Serial.println("D");
+  }
+  //E
+  else if(btn1 == LOW && btn2 == HIGH && btn3 == HIGH && btn4 == HIGH && btn5 == LOW && btn6 == HIGH){
+    changeDotState("100010");
+    Serial.println("E");
+  }
+  //F
+  else if(btn1 == LOW && btn2 == LOW && btn3 == HIGH && btn4 == LOW && btn5 == HIGH && btn6 == HIGH){
+    changeDotState("110100");
+    Serial.println("F");
+  }
+  //G
+  else if(btn1 == LOW && btn2 == LOW && btn3 == HIGH && btn4 == LOW && btn5 == LOW && btn6 == HIGH){
+    changeDotState("110110");
+    Serial.println("G");
+  }
+  //H
+  else if(btn1 == LOW && btn2 == LOW && btn3 == HIGH && btn4 == HIGH && btn5 == LOW && btn6 == HIGH){
+    changeDotState("110010");
+    Serial.println("H");
+  }
+  //I
+  else if(btn1 == HIGH && btn2 == LOW && btn3 == HIGH && btn4 == LOW && btn5 == HIGH && btn6 == HIGH){
+    changeDotState("010100");
+    Serial.println("I");
+  }
+  //J
+  else if(btn1 == HIGH && btn2 == LOW && btn3 == HIGH && btn4 == LOW && btn5 == LOW && btn6 == HIGH){
+    changeDotState("010110");
+    Serial.println("J");
+  }
+  //K
+  else if(btn1 == LOW && btn2 == HIGH && btn3 == LOW && btn4 == HIGH && btn5 == HIGH && btn6 == HIGH){
+    changeDotState("101000");
+    Serial.println("K");
+  }
+  //L
+  else if(btn1 == LOW && btn2 == LOW && btn3 == LOW && btn4 == HIGH && btn5 == HIGH && btn6 == HIGH){
+    changeDotState("111000");
+    Serial.println("L");
+  }
+  //M
+  else if(btn1 == LOW && btn2 == HIGH && btn3 == LOW && btn4 == LOW && btn5 == HIGH && btn6 == HIGH){
+    changeDotState("101100");
+    Serial.println("M");
+  }
+  //N
+  else if(btn1 == LOW && btn2 == HIGH && btn3 == LOW && btn4 == LOW && btn5 == LOW && btn6 == HIGH){
+    changeDotState("101110");
+    Serial.println("N");
+  }
+  //O
+  else if(btn1 == LOW && btn2 == HIGH && btn3 == LOW && btn4 == HIGH && btn5 == LOW && btn6 == HIGH){
+    changeDotState("101010");
+    Serial.println("O");
+  }
+  //P
+  else if(btn1 == LOW && btn2 == LOW && btn3 == LOW && btn4 == LOW && btn5 == HIGH && btn6 == HIGH){
+    changeDotState("111100");
+    Serial.println("P");
+  }
+  //Q
+  else if(btn1 == LOW && btn2 == LOW && btn3 == LOW && btn4 == LOW && btn5 == LOW && btn6 == HIGH){
+    changeDotState("111110");
+    Serial.println("Q");
+  }
+  //R
+  else if(btn1 == LOW && btn2 == LOW && btn3 == LOW && btn4 == HIGH && btn5 == LOW && btn6 == HIGH){
+    changeDotState("111010");
+    Serial.println("R");
+  }
+  //S
+  else if(btn1 == HIGH && btn2 == LOW && btn3 == LOW && btn4 == LOW && btn5 == HIGH && btn6 == HIGH){
+    changeDotState("011100");
+    Serial.println("S");
+  }
+  //T
+  else if(btn1 == HIGH && btn2 == LOW && btn3 == LOW && btn4 == LOW && btn5 == LOW && btn6 == HIGH){
+    changeDotState("011110");
+    Serial.println("T");
+  }
+  //U
+  else if(btn1 == LOW && btn2 == HIGH && btn3 == LOW && btn4 == HIGH && btn5 == HIGH && btn6 == LOW){
+    changeDotState("101001");
+    Serial.println("U");
+  }
+  //V
+  else if(btn1 == LOW && btn2 == LOW && btn3 == LOW && btn4 == HIGH && btn5 == HIGH && btn6 == LOW){
+    changeDotState("111001");
+    Serial.println("V");
+  }
+  //W
+  else if(btn1 == HIGH && btn2 == LOW && btn3 == HIGH && btn4 == LOW && btn5 == LOW && btn6 == LOW){
+    changeDotState("010111");
+    Serial.println("W");
+  }
+  //X
+  else if(btn1 == LOW && btn2 == HIGH && btn3 == LOW && btn4 == LOW && btn5 == HIGH && btn6 == LOW){
+    changeDotState("101101");
+    Serial.println("X");
+  }
+  //Y
+  else if(btn1 == LOW && btn2 == HIGH && btn3 == LOW && btn4 == LOW && btn5 == LOW && btn6 == LOW){
+    changeDotState("101111");
+    Serial.println("Y");
+  }
+  //Z
+  else if(btn1 == LOW && btn2 == HIGH && btn3 == LOW && btn4 == HIGH && btn5 == LOW && btn6 == LOW){
+    changeDotState("101011");
+    Serial.println("Z");
+  }
+  else{
+    Serial.println("Wrong");
+  }
+}
+
+/*
+//Checking the alphabet combinations
+void Check() {
+  
+  //A
   if(btn1Pressed == true && btn2Pressed == false && btn3Pressed == false && btn4Pressed == false && btn5Pressed == false && btn6Pressed == false){
     changeDotState("100000");
     Serial.println("A");
@@ -901,6 +1042,7 @@ void Check() {
     Serial.println("Wrong");
   }
 }
+*/
 
 //Free mode
 void freeMode() {
