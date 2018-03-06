@@ -508,62 +508,80 @@ void checkbtnn6() {
 
 //Do While loop for checking if btn 1 was pressed
 void checkAlpha1() {
+  TMRpcm tmrpcm11;
+  tmrpcm11.setVolume(6);
   do {
     tmrpcm.play("pressFirstButton.wav");
     readInput();
     pause5();
     Serial.println(btn1);
-  } while(btn1 == LOW);
+  } while(btn1 == HIGH);
+  btn1Pressed = true;
 }
 
 //Do While loop for checking if btn 2 was pressed
 void checkAlpha2() {
+  TMRpcm tmrpcm12;
+  tmrpcm12.setVolume(6);
   do {
     tmrpcm.play("pressSecondButton.wav");
     readInput();
     pause5();
     Serial.println(btn2);
-  } while(btn2 == LOW);
+  } while(btn2 == HIGH);
+  btn2Pressed = true;
 }
 
 //Do While loop for checking if btn 3 was pressed
 void checkAlpha3() {
+  TMRpcm tmrpcm13;
+  tmrpcm13.setVolume(6);
   do {
     tmrpcm.play("pressThirdButton.wav");
     readInput();
     pause5();
     Serial.println(btn3);
-  } while(btn3 == LOW);
+  } while(btn3 == HIGH);
+  btn3Pressed = true;
 }
 
 //Do While loop for checking if btn 4 was pressed
 void checkAlpha4() {
+  TMRpcm tmrpcm14;
+  tmrpcm14.setVolume(6);
   do {
     tmrpcm.play("pressFourthButton.wav");
     readInput();
     pause5();
     Serial.println(btn4);
-  } while(btn4 == LOW);
+  } while(btn4 == HIGH);
+  btn4Pressed = true;
 }
 
 //Do While loop for checking if btn 5 was pressed
 void checkAlpha5() {
+  TMRpcm tmrpcm15;
+  tmrpcm15.setVolume(6);
   do {
     tmrpcm.play("pressFifthButton.wav");
     readInput();
     pause5();
     Serial.println(btn5);
-  } while(btn5 == LOW);
+  } while(btn5 == HIGH);
+  btn5Pressed = true;
 }
 
 //Do While loop for checking if btn 6 was pressed
 void checkAlpha6() {
+  TMRpcm tmrpcm16;
+  tmrpcm16.setVolume(6);
   do {
     tmrpcm.play("pressSixthButton.wav");
     readInput();
     pause5();
     Serial.println(btn6);
-  } while(btn6 == LOW);
+  } while(btn6 == HIGH);
+  btn6Pressed = true;
 }
 
 void callAlpha(char receive) {
@@ -1552,7 +1570,7 @@ void tutorial() {
   Serial.println("Great! You have pressed A! You have 10 seconds to feel the dot!");
   changeDotState("100000");
   pause5();
-  resetOutputPin();
+  checkPressedButton(1);
 
   //B
   tmrpcm.play("B1.wav");
@@ -1566,8 +1584,9 @@ void tutorial() {
   tmrpcm.play("B3.wav");
   Serial.println("Great! You have pressed B! You have 10 seconds to feel the dot!");
   pause5();
-  resetOutputPin();
-
+  checkPressedButton(1);
+  checkPressedButton(2);
+  
   //C
   Serial.println("Press the first btn!");
   checkAlpha1();
@@ -1578,8 +1597,9 @@ void tutorial() {
   tmrpcm.play("C3.wav");
   Serial.println("Great! You have pressed C! You have 10 seconds to feel the dot!");
   pause5();
-  resetOutputPin();
-
+  checkPressedButton(1);
+  checkPressedButton(4);
+  
   //D
   Serial.println("Press the first btn!");
   checkAlpha1();
@@ -1593,8 +1613,10 @@ void tutorial() {
   tmrpcm.play("D4.wav");
   Serial.println("Great! You have pressed D! You have 10 seconds to feel the dot!");
   pause5();
-  resetOutputPin();
-
+  checkPressedButton(1);
+  checkPressedButton(4);
+  checkPressedButton(5);
+  
   //E
   Serial.println("Press the first btn!");
   checkAlpha1();
@@ -1605,8 +1627,9 @@ void tutorial() {
   tmrpcm.play("E3.wav");
   Serial.println("Great! You have pressed E! You have 10 seconds to feel the dot!");
   pause5();
-  resetOutputPin();
-
+  checkPressedButton(1);
+  checkPressedButton(5);
+  
   //F
   Serial.println("Press the first btn!");
   checkAlpha1();
@@ -1620,8 +1643,10 @@ void tutorial() {
   tmrpcm.play("F4.wav");
   Serial.println("Great! You have pressed F! You have 10 seconds to feel the dot!");
   pause5();
-  resetOutputPin();
-
+  checkPressedButton(1);
+  checkPressedButton(2);
+  checkPressedButton(4);
+  
   //G
   Serial.println("Press the first btn!");
   checkAlpha1();
@@ -1638,8 +1663,11 @@ void tutorial() {
   tmrpcm.play("G5.wav");
   Serial.println("Great! You have pressed G! You have 10 seconds to feel the dot!");
   pause5();
-  resetOutputPin();
-
+  checkPressedButton(1);
+  checkPressedButton(2);
+  checkPressedButton(3);
+  checkPressedButton(4);
+  
   //H
   Serial.println("Press the first btn!");
   checkAlpha1();
@@ -1653,8 +1681,10 @@ void tutorial() {
   tmrpcm.play("H4.wav");
   Serial.println("Great! You have pressed H! You have 10 seconds to feel the dot!");
   pause5();
-  resetOutputPin();
-
+  checkPressedButton(1);
+  checkPressedButton(2);
+  checkPressedButton(5);
+  
   //I
   Serial.println("Press the second btn!");
   checkAlpha2();
@@ -1665,8 +1695,9 @@ void tutorial() {
   tmrpcm.play("I3.wav");
   Serial.println("Great! You have pressed I! You have 10 seconds to feel the dot!");
   pause5();
-  resetOutputPin();
-
+  checkPressedButton(2);
+  checkPressedButton(4);
+  
   //J
   Serial.println("Press the second btn!");
   checkAlpha2();
@@ -1680,8 +1711,10 @@ void tutorial() {
   tmrpcm.play("J4.wav");
   Serial.println("Great! You have pressed J! You have 10 seconds to feel the dot!");
   pause5();
-  resetOutputPin();
-
+  checkPressedButton(2);
+  checkPressedButton(4);
+  checkPressedButton(5);
+  
   //K
   Serial.println("Press the first btn!");
   checkAlpha1();
@@ -1692,8 +1725,9 @@ void tutorial() {
   tmrpcm.play("K3.wav");
   Serial.println("Great! You have pressed K! You have 10 seconds to feel the dot!");
   pause5();
-  resetOutputPin();
-
+  checkPressedButton(1);
+  checkPressedButton(3);
+  
   //L
   Serial.println("Press the first btn!");
   checkAlpha1();
@@ -1707,8 +1741,10 @@ void tutorial() {
   tmrpcm.play("L4.wav");
   Serial.println("Great! You have pressed L! You have 10 seconds to feel the dot!");
   pause5();
-  resetOutputPin();
-
+  checkPressedButton(1);
+  checkPressedButton(2);
+  checkPressedButton(3);
+  
   //M
   Serial.println("Press the first btn!");
   checkAlpha1();
@@ -1722,8 +1758,10 @@ void tutorial() {
   tmrpcm.play("M4.wav");
   Serial.println("Great! You have pressed M! You have 10 seconds to feel the dot!");
   pause5();
-  resetOutputPin();
-
+  checkPressedButton(1);
+  checkPressedButton(3);
+  checkPressedButton(4);
+  
   //N
   Serial.println("Press the first btn!");
   checkAlpha1();
@@ -1740,7 +1778,10 @@ void tutorial() {
   tmrpcm.play("N5.wav");
   Serial.println("Great! You have pressed N! You have 10 seconds to feel the dot!");
   pause5();
-  resetOutputPin();
+  checkPressedButton(1);
+  checkPressedButton(3);
+  checkPressedButton(4);
+  checkPressedButton(5);
 
   //O
   Serial.println("Press the first btn!");
@@ -1755,8 +1796,10 @@ void tutorial() {
   tmrpcm.play("O4.wav");
   Serial.println("Great! You have pressed O! You have 10 seconds to feel the dot!");
   pause5();
-  resetOutputPin();
-
+  checkPressedButton(1);
+  checkPressedButton(3);
+  checkPressedButton(5);
+  
   //P
   Serial.println("Press the first btn!");
   checkAlpha1();
@@ -1773,8 +1816,11 @@ void tutorial() {
   tmrpcm.play("P5.wav");
   Serial.println("Great! You have pressed P! You have 10 seconds to feel the dot!");
   pause5();
-  resetOutputPin();
-
+  checkPressedButton(1);
+  checkPressedButton(2);
+  checkPressedButton(3);
+  checkPressedButton(4);
+  
   //Q
   Serial.println("Press the first btn!");
   checkAlpha1();
@@ -1794,8 +1840,12 @@ void tutorial() {
   tmrpcm.play("Q6.wav");
   Serial.println("Great! You have pressed Q! You have 10 seconds to feel the dot!");
   pause5();
-  resetOutputPin();
-
+  checkPressedButton(1);
+  checkPressedButton(2);
+  checkPressedButton(3);
+  checkPressedButton(4);
+  checkPressedButton(5);
+  
   //R
   Serial.println("Press the first btn!");
   checkAlpha1();
@@ -1812,8 +1862,11 @@ void tutorial() {
   tmrpcm.play("R5.wav");
   Serial.println("Great! You have pressed R! You have 10 seconds to feel the dot!");
   pause5();
-  resetOutputPin();
-
+  checkPressedButton(1);
+  checkPressedButton(2);
+  checkPressedButton(3);
+  checkPressedButton(5);
+  
   //S
   Serial.println("Press the second btn!");
   checkAlpha2();
@@ -1827,8 +1880,10 @@ void tutorial() {
   tmrpcm.play("S4.wav");
   Serial.println("Great! You have pressed S! You have 10 seconds to feel the dot!");
   pause5();
-  resetOutputPin();
-
+  checkPressedButton(2);
+  checkPressedButton(3);
+  checkPressedButton(4);
+  
   //T
   Serial.println("Press the second btn!");
   checkAlpha2();
@@ -1845,8 +1900,11 @@ void tutorial() {
   tmrpcm.play("T5.wav");
   Serial.println("Great! You have pressed T! You have 10 seconds to feel the dot!");
   pause5();
-  resetOutputPin();
-
+  checkPressedButton(2);
+  checkPressedButton(3);
+  checkPressedButton(4);
+  checkPressedButton(5);
+  
   //U
   Serial.println("Press the first btn!");
   checkAlpha1();
@@ -1860,8 +1918,10 @@ void tutorial() {
   tmrpcm.play("U4.wav");
   Serial.println("Great! You have pressed U! You have 10 seconds to feel the dot!");
   pause5();
-  resetOutputPin();
-
+  checkPressedButton(1);
+  checkPressedButton(3);
+  checkPressedButton(6);
+  
   //V
   Serial.println("Press the first btn!");
   checkAlpha1();
@@ -1878,8 +1938,11 @@ void tutorial() {
   tmrpcm.play("V5.wav");
   Serial.println("Great! You have pressed V! You have 10 seconds to feel the dot!");
   pause5();
-  resetOutputPin();
-
+  checkPressedButton(1);
+  checkPressedButton(2);
+  checkPressedButton(3);
+  checkPressedButton(6);
+  
   //W
   Serial.println("Press the second btn!");
   checkAlpha2();
@@ -1896,8 +1959,11 @@ void tutorial() {
   tmrpcm.play("W5.wav");
   Serial.println("Great! You have pressed W! You have 10 seconds to feel the dot!");
   pause5();
-  resetOutputPin();
-
+  checkPressedButton(2);
+  checkPressedButton(4);
+  checkPressedButton(5);
+  checkPressedButton(6);
+  
   //X
   Serial.println("Press the first btn!");
   checkAlpha1();
@@ -1914,8 +1980,11 @@ void tutorial() {
   tmrpcm.play("X5.wav");
   Serial.println("Great! You have pressed X! You have 10 seconds to feel the dot!");
   pause5();
-  resetOutputPin();
-
+  checkPressedButton(1);
+  checkPressedButton(3);
+  checkPressedButton(4);
+  checkPressedButton(6);
+  
   //Y
   Serial.println("Press the first btn!");
   checkAlpha1();
@@ -1935,8 +2004,12 @@ void tutorial() {
   tmrpcm.play("Y6.wav");
   Serial.println("Great! You have pressed Y! You have 10 seconds to feel the dot!");
   pause5();
-  resetOutputPin();
-
+  checkPressedButton(1);
+  checkPressedButton(3);
+  checkPressedButton(4);
+  checkPressedButton(5);
+  checkPressedButton(6);
+  
   //Z
   Serial.println("Press the first btn!");
   checkAlpha1();
@@ -1953,8 +2026,11 @@ void tutorial() {
   tmrpcm.play("Z5.wav");
   Serial.println("Great! You have pressed Z! You have 10 seconds to feel the dot!");
   pause5();
-  resetOutputPin();
-
+  checkPressedButton(1);
+  checkPressedButton(3);
+  checkPressedButton(5);
+  checkPressedButton(6);
+  
   //Numbers
 
   //1
