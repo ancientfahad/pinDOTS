@@ -348,6 +348,7 @@ void checkbtn1() {
     pause5();
     Serial.println(btn1);
   } while(btn1 == LOW);
+  btn1Pressed = true;
   tmrpcm11.play("FRB.wav");
 }
 
@@ -361,6 +362,7 @@ void checkbtn2() {
     pause5();
     Serial.println(btn2);
   } while(btn2 == LOW);
+  btn2Pressed = true;
   tmrpcm12.play("SCB.wav");
 }
 
@@ -374,6 +376,7 @@ void checkbtn3() {
     pause5();
     Serial.println(btn3);
   } while(btn3 == LOW);
+  btn3Pressed = true;
   tmrpcm13.play("THB.wav");
 }
 
@@ -387,6 +390,7 @@ void checkbtn4() {
     pause5();
     Serial.println(btn4);
   } while(btn4 == LOW);
+  btn4Pressed = true;
   tmrpcm14.play("FOB.wav");
 }
 
@@ -400,6 +404,7 @@ void checkbtn5() {
     pause5();
     Serial.println(btn5);
   } while(btn5 == LOW);
+  btn5Pressed = true;
   tmrpcm15.play("FFB.wav");
 }
 
@@ -413,6 +418,91 @@ void checkbtn6() {
     pause5();
     Serial.println(btn6);
   } while(btn6 == LOW);
+  btn6Pressed = true;
+  tmrpcm16.play("SXB.wav");
+}
+
+//Do While loop for checking if btn 1 was pressed
+void checkbtnn1() {
+  TMRpcm tmrpcm11;
+  tmrpcm11.setVolume(6);
+  do {
+    tmrpcm11.play("PFR.wav");
+    readInput();
+    pause5();
+    Serial.println(btn1);
+  } while(btn1 == HIGH);
+  btn1Pressed = true;
+  tmrpcm11.play("FRB.wav");
+}
+
+//Do While loop for checking if btn 2 was pressed
+void checkbtnn2() {
+  TMRpcm tmrpcm12;
+  tmrpcm12.setVolume(6);
+  do {
+    tmrpcm12.play("PSC.wav");
+    readInput();
+    pause5();
+    Serial.println(btn2);
+  } while(btn2 == HIGH);
+  btn2Pressed = true;
+  tmrpcm12.play("SCB.wav");
+}
+
+//Do While loop for checking if btn 3 was pressed
+void checkbtnn3() {
+  TMRpcm tmrpcm13;
+  tmrpcm13.setVolume(6);
+  do {
+    tmrpcm13.play("PTH.wav");
+    readInput();
+    pause5();
+    Serial.println(btn3);
+  } while(btn3 == HIGH);
+  btn3Pressed = true;
+  tmrpcm13.play("THB.wav");
+}
+
+//Do While loop for checking if btn 4 was pressed
+void checkbtnn4() {
+  TMRpcm tmrpcm14;
+  tmrpcm14.setVolume(6);
+  do {
+    tmrpcm14.play("PFO.wav");
+    readInput();
+    pause5();
+    Serial.println(btn4);
+  } while(btn4 == HIGH);
+  btn4Pressed = true;
+  tmrpcm14.play("FOB.wav");
+}
+
+//Do While loop for checking if btn 5 was pressed
+void checkbtnn5() {
+  TMRpcm tmrpcm15;
+  tmrpcm15.setVolume(6);
+  do {
+    tmrpcm15.play("PFF.wav");
+    readInput();
+    pause5();
+    Serial.println(btn5);
+  } while(btn5 == HIGH);
+  btn5Pressed = true;
+  tmrpcm15.play("FFB.wav");
+}
+
+//Do While loop for checking if btn 6 was pressed
+void checkbtnn6() {
+  TMRpcm tmrpcm16;
+  tmrpcm16.setVolume(6);
+  do {
+    tmrpcm16.play("PSX.wav");
+    readInput();
+    pause5();
+    Serial.println(btn6);
+  } while(btn6 == HIGH);
+  btn6Pressed = true;
   tmrpcm16.play("SXB.wav");
 }
 
@@ -834,6 +924,64 @@ void checkIfClicked() {
 }
 */
 
+void checkPressedButton(int pressedBtn) {
+  switch(pressedBtn){
+    case 1:
+    do{
+      readInput();
+      Serial.println("Turn off the first button!");
+      pauseHalf();
+    }while(btn1 == LOW);
+    Serial.println("You have turned off the first button!");
+    break;
+    
+    case 2:
+    do{
+      readInput();
+      Serial.println("Turn off the second button!");
+      pauseHalf();
+    }while(btn2 == LOW);
+    Serial.println("You have turned off the second button!");
+    break;
+    
+    case 3:
+    do{
+      readInput();
+      Serial.println("Turn off the third button!");
+      pauseHalf();
+    }while(btn3 == LOW);
+    Serial.println("You have turned off the third button!");
+    break;
+
+    case 4:
+    do{
+      readInput();
+      Serial.println("Turn off the fourth button!");
+      pauseHalf();
+    }while(btn4 == LOW);
+    Serial.println("You have turned off the fourth button!");
+    break;
+
+    case 5:
+    do{
+      readInput();
+      Serial.println("Turn off the fifth button!");
+      pauseHalf();
+    }while(btn5 == LOW);
+    Serial.println("You have turned off the fifth button!");
+    break;
+
+    case 6:
+    do{
+      readInput();
+      Serial.println("Turn off the sixth button!");
+      pauseHalf();
+    }while(btn6 == LOW);
+    Serial.println("You have turned off the sixth button!");
+    break;
+  }
+}
+
 void checkIfClicked() {
   TMRpcm tmrpcm1;
   tmrpcm1.setVolume(6);
@@ -845,39 +993,50 @@ void checkIfClicked() {
       tmrpcm1.play("FRB.wav");
       pause5();
       Serial.println("You have pressed the first button!"); 
+      btn1Pressed = true;
+      checkPressedButton(1);
     }
     else if(btn2 == LOW) {
       digitalWrite(29, HIGH);
       tmrpcm1.play("SCB.wav");
       pause5();
       Serial.println("You have pressed the second button!");
+      btn2Pressed = true;
+      checkPressedButton(2);
     }
     else if(btn3 == LOW) {
       digitalWrite(30, HIGH);
       tmrpcm1.play("THB.wav");
       pause5();
       Serial.println("You have pressed the third button!");
+      btn3Pressed = true;
+      checkPressedButton(3);
     }
     else if(btn4 == LOW) {
       digitalWrite(31, HIGH);
       tmrpcm1.play("FOB.wav");
       pause5();
       Serial.println("You have pressed the fourth button!");
+      btn4Pressed = true;
+      checkPressedButton(4);
     }
     else if(btn5 == LOW) {
       digitalWrite(32, HIGH);
       tmrpcm1.play("FFB.wav");
       pause5();
       Serial.println("You have pressed the fifth button!");
+      btn5Pressed = true;
+      checkPressedButton(5);
     }
     else if(btn6 == LOW) {
       digitalWrite(33, HIGH);
       tmrpcm1.play("SXB.wav");
       pause5();
       Serial.println("You have pressed the sixth button!");
+      btn6Pressed = true;
+      checkPressedButton(6);
     } 
-  } while(btn1 == HIGH && btn2 == HIGH && btn3 == HIGH && btn4 == HIGH && btn5 == HIGH && btn6 == HIGH);
-  pause5();
+  } while(btn1Pressed == false && btn2Pressed == false && btn3Pressed == false && btn4Pressed == false && btn5Pressed == false && btn6Pressed == false);
 }
 
 //Embosing the solenoid
@@ -1308,68 +1467,71 @@ void tutorial() {
   tmrpcm.play("E0.wav");
   delay(2000);
   Serial.println("Try pressing the first btn!");
-  checkbtn1();
+  checkbtnn1();
   Serial.println("Great! You were able to press the first btn! Now try to feel the first dot! You have 10 seconds to feel the dot!");
   tmrpcm.play("F0.wav");
   delay(10000);
   changeDotState("100000");
   pause5();
-  resetOutputPin();
-
+  checkPressedButton(1);
+  
   tmrpcm.play("G0.wav");
   delay(4000);
   Serial.println("Now try pressing the second btn!");
-  checkbtn2();
+  checkbtnn2();
   Serial.println("Great! You were able to press the second btn! Now try to feel the second dot! You have 10 seconds to feel the dot!");
   tmrpcm.play("H0.wav");
   delay(9000);
   changeDotState("010000");
   pause5();
-  resetOutputPin();
-
+  checkPressedButton(2);
+  
   tmrpcm.play("I0.wav");
   delay(3000);
   Serial.println("Now try pressing the third btn!");
-  checkbtn3();
+  checkbtnn3();
   Serial.println("Great! You were able to press the third btn! Now try to feel the third dot! You have 10 seconds to feel the dot!");
   tmrpcm.play("J0.wav");
   delay(9000);
   changeDotState("001000");
   pause5();
   resetOutputPin();
-
+  checkPressedButton(3);
+  
   tmrpcm.play("K0.wav");
   delay(3000);
   Serial.println("Now try pressing the fourth btn!");
-  checkbtn4();
+  checkbtnn4();
   Serial.println("Great! You were able to press the fourth btn! Now try to feel the fourth dot! You have 10 seconds to feel the dot!");
   tmrpcm.play("L0.wav");
   delay(9000);
   changeDotState("000100");
   pause5();
-  resetOutputPin();
+  checkPressedButton(4);
 
   tmrpcm.play("M0.wav");
   delay(3000);
   Serial.println("Now try pressing the fifth btn!");
-  checkbtn5();
+  checkbtnn5();
   Serial.println("Great! You were able to press the fifth btn! Now try to feel the fifth dot! You have 10 seconds to feel the dot!");
   tmrpcm.play("N0.wav");
   delay(9000);
   changeDotState("000010");
   pause5();
-  resetOutputPin();
+  checkPressedButton(5);
+
 
   tmrpcm.play("O0.wav");
   delay(3000);
   Serial.println("Try pressing the sixth btn!");
-  checkbtn6();
+  checkbtnn6();
   Serial.println("Great! You were able to press the sixth btn! Now try to feel the sixth dot! You have 10 seconds to feel the dot!");
   tmrpcm.play("P0.wav");
   delay(10000);
   changeDotState("000001");
   pause5();
-  resetOutputPin();
+  checkPressedButton(6);
+
 
   tmrpcm.play("Q0.wav");
   Serial.println("Great! You were able to press all the btns! Very good!");
