@@ -83,12 +83,12 @@ void changeDotState(String parameter) {
 
 //Reset Output Pin
 void resetOutputPin() {
-  pinMode(28,LOW); //relay
-  pinMode(29,LOW); //relay
-  pinMode(30,LOW); //relay
-  pinMode(31,LOW); //relay
-  pinMode(32,LOW); //relay
-  pinMode(33,LOW); //relay
+  pinMode(22,LOW); //relay
+  //pinMode(23,LOW); //relay
+  //pinMode(24,LOW); //relay
+  //pinMode(25,LOW); //relay
+  //pinMode(26,LOW); //relay
+  //pinMode(27,LOW); //relay
 }
 
 //Read Input Pin
@@ -142,6 +142,7 @@ void resetBool() {
   btn6Pressed = false;
 }
 
+/*
 //Do While loop for checking if btn was pressed while btn is LOW
 void checkbtn1() {
   tmrpcm.play("pressFirstButton.wav");
@@ -332,6 +333,145 @@ void checkAlpha6() {
   do {
     readInput();
     pauseHalf();
+    Serial.println(btn6);
+  } while(btn6 == LOW);
+}
+*/
+
+//Do While loop for checking if btn 1 was pressed
+void checkbtn1() {
+  TMRpcm tmrpcm11;
+  tmrpcm11.setVolume(6);
+  do {
+    tmrpcm11.play("PFR.wav");
+    readInput();
+    pause5();
+    Serial.println(btn1);
+  } while(btn1 == LOW);
+  tmrpcm11.play("FRB.wav");
+}
+
+//Do While loop for checking if btn 2 was pressed
+void checkbtn2() {
+  TMRpcm tmrpcm12;
+  tmrpcm12.setVolume(6);
+  do {
+    tmrpcm12.play("PSC.wav");
+    readInput();
+    pause5();
+    Serial.println(btn2);
+  } while(btn2 == LOW);
+  tmrpcm12.play("SCB.wav");
+}
+
+//Do While loop for checking if btn 3 was pressed
+void checkbtn3() {
+  TMRpcm tmrpcm13;
+  tmrpcm13.setVolume(6);
+  do {
+    tmrpcm13.play("PTH.wav");
+    readInput();
+    pause5();
+    Serial.println(btn3);
+  } while(btn3 == LOW);
+  tmrpcm13.play("THB.wav");
+}
+
+//Do While loop for checking if btn 4 was pressed
+void checkbtn4() {
+  TMRpcm tmrpcm14;
+  tmrpcm14.setVolume(6);
+  do {
+    tmrpcm14.play("PFO.wav");
+    readInput();
+    pause5();
+    Serial.println(btn4);
+  } while(btn4 == LOW);
+  tmrpcm14.play("FOB.wav");
+}
+
+//Do While loop for checking if btn 5 was pressed
+void checkbtn5() {
+  TMRpcm tmrpcm15;
+  tmrpcm15.setVolume(6);
+  do {
+    tmrpcm15.play("PFF.wav");
+    readInput();
+    pause5();
+    Serial.println(btn5);
+  } while(btn5 == LOW);
+  tmrpcm15.play("FFB.wav");
+}
+
+//Do While loop for checking if btn 6 was pressed
+void checkbtn6() {
+  TMRpcm tmrpcm16;
+  tmrpcm16.setVolume(6);
+  do {
+    tmrpcm16.play("PSX.wav");
+    readInput();
+    pause5();
+    Serial.println(btn6);
+  } while(btn6 == LOW);
+  tmrpcm16.play("SXB.wav");
+}
+
+//Do While loop for checking if btn 1 was pressed
+void checkAlpha1() {
+  do {
+    tmrpcm.play("pressFirstButton.wav");
+    readInput();
+    pause5();
+    Serial.println(btn1);
+  } while(btn1 == LOW);
+}
+
+//Do While loop for checking if btn 2 was pressed
+void checkAlpha2() {
+  do {
+    tmrpcm.play("pressSecondButton.wav");
+    readInput();
+    pause5();
+    Serial.println(btn2);
+  } while(btn2 == LOW);
+}
+
+//Do While loop for checking if btn 3 was pressed
+void checkAlpha3() {
+  do {
+    tmrpcm.play("pressThirdButton.wav");
+    readInput();
+    pause5();
+    Serial.println(btn3);
+  } while(btn3 == LOW);
+}
+
+//Do While loop for checking if btn 4 was pressed
+void checkAlpha4() {
+  do {
+    tmrpcm.play("pressFourthButton.wav");
+    readInput();
+    pause5();
+    Serial.println(btn4);
+  } while(btn4 == LOW);
+}
+
+//Do While loop for checking if btn 5 was pressed
+void checkAlpha5() {
+  do {
+    tmrpcm.play("pressFifthButton.wav");
+    readInput();
+    pause5();
+    Serial.println(btn5);
+  } while(btn5 == LOW);
+}
+
+//Do While loop for checking if btn 6 was pressed
+void checkAlpha6() {
+  do {
+    tmrpcm.play("pressSixthButton.wav");
+    readInput();
+    pause5();
     Serial.println(btn6);
   } while(btn6 == LOW);
 }
@@ -583,6 +723,7 @@ void checkAlpha(char receive) {
   }
 }
 
+/*
 void checkBtnStatus(int intBtn) {
   
   switch(intBtn)
@@ -691,75 +832,112 @@ void checkIfClicked() {
     }
   }while(btn1Pressed == false && btn2Pressed == false && btn3Pressed == false && btn4Pressed == false && btn5Pressed == false && btn6Pressed == false);
 }
+*/
+
+void checkIfClicked() {
+  TMRpcm tmrpcm1;
+  tmrpcm1.setVolume(6);
+  do {
+    readInput();
+    
+    if(btn1 == LOW) {
+      digitalWrite(28, HIGH);
+      tmrpcm1.play("FRB.wav");
+      pause5();
+      Serial.println("You have pressed the first button!"); 
+    }
+    else if(btn2 == LOW) {
+      digitalWrite(29, HIGH);
+      tmrpcm1.play("SCB.wav");
+      pause5();
+      Serial.println("You have pressed the second button!");
+    }
+    else if(btn3 == LOW) {
+      digitalWrite(30, HIGH);
+      tmrpcm1.play("THB.wav");
+      pause5();
+      Serial.println("You have pressed the third button!");
+    }
+    else if(btn4 == LOW) {
+      digitalWrite(31, HIGH);
+      tmrpcm1.play("FOB.wav");
+      pause5();
+      Serial.println("You have pressed the fourth button!");
+    }
+    else if(btn5 == LOW) {
+      digitalWrite(32, HIGH);
+      tmrpcm1.play("FFB.wav");
+      pause5();
+      Serial.println("You have pressed the fifth button!");
+    }
+    else if(btn6 == LOW) {
+      digitalWrite(33, HIGH);
+      tmrpcm1.play("SXB.wav");
+      pause5();
+      Serial.println("You have pressed the sixth button!");
+    } 
+  } while(btn1 == HIGH && btn2 == HIGH && btn3 == HIGH && btn4 == HIGH && btn5 == HIGH && btn6 == HIGH);
+  pause5();
+}
 
 //Embosing the solenoid
 void on() {
   if(btn1 == HIGH) {
-    digitalWrite(28, HIGH);
+    digitalWrite(28, LOW);
     tmrpcm.play("firstButtonPressed.wav");
-    Serial.println("You have pressed the first button!"); 
   }
   if(btn2 == HIGH) {
-    digitalWrite(29, HIGH);
+    digitalWrite(29, LOW);
     tmrpcm.play("secondButtonPressed.wav");
-    Serial.println("You have pressed the second button!");
   }
   if(btn3 == HIGH) {
-    digitalWrite(30, HIGH);
+    digitalWrite(30, LOW);
     tmrpcm.play("thirdButtonPressed.wav");
-    Serial.println("You have pressed the third button!");
   }
   if(btn4 == HIGH) {
-    digitalWrite(31, HIGH);
+    digitalWrite(31, LOW);
     tmrpcm.play("fourthButtonPressed.wav");
-    Serial.println("You have pressed the fourth button!");
   }
   if(btn5 == HIGH) {
-    digitalWrite(32, HIGH);
+    digitalWrite(32, LOW);
     tmrpcm.play("fifthButtonPresed.wav");
-    Serial.println("You have pressed the fifth button!");
   }
   if(btn6 == HIGH) {
-    digitalWrite(33, HIGH);
+    digitalWrite(33, LOW);
     tmrpcm.play("sixthButtonPressed.wav");
-    Serial.println("You have pressed the sixth button!");
   }
   Check();
+  pauseHalf();
 }
 
 //Engraving the solenoid
 void off() {
   if(btn1 == LOW) {
-    digitalWrite(28, LOW);
+    digitalWrite(28, HIGH);
     tmrpcm.play("firstButtonPressed.wav");
-    Serial.println("You have pressed the first button!");
   }
   if(btn2 == LOW) {
-    digitalWrite(29, LOW);
+    digitalWrite(29, HIGH);
     tmrpcm.play("secondButtonPressed.wav");
-    Serial.println("You have pressed the second button!");
   }
   if(btn3 == LOW) {
-    digitalWrite(30, LOW);
+    digitalWrite(30, HIGH);
     tmrpcm.play("thirdButtonPressed.wav");
-    Serial.println("You have pressed the third button!");
   }
   if(btn4 == LOW) {
-    digitalWrite(31, LOW);
+    digitalWrite(31, HIGH);
     tmrpcm.play("fourthButtonPressed.wav");
-    Serial.println("You have pressed the fourth button!");
   }
   if(btn5 == LOW) {
-    digitalWrite(32, LOW);
+    digitalWrite(32, HIGH);
     tmrpcm.play("fifthButtonPressed.wav");
-    Serial.println("You have pressed the fifth button!");
   }
   if(btn6 == LOW) {
-    digitalWrite(33, LOW);
+    digitalWrite(33, HIGH);
     tmrpcm.play("sixthButtonPressed.wav");
-    Serial.println("You have pressed the sixth button!");
   }
   Check();
+  pauseHalf();
 }
 
 //Checking the alphabet combinations
@@ -767,135 +945,188 @@ void Check() {
   
   //A
   if(btn1 == LOW && btn2 == HIGH && btn3 == HIGH && btn4 == HIGH && btn5 == HIGH && btn6 == HIGH){
+    tmrpcm.play("LA.wav");
     changeDotState("100000");
     Serial.println("A");
+    pause3();
   }
   
   //B
   else if(btn1 == LOW && btn2 == LOW && btn3 == HIGH && btn4 == HIGH && btn5 == HIGH && btn6 == HIGH){
     changeDotState("110000");
+    tmrpcm.play("LB.wav");
     Serial.println("B");
+    pause3();
   }
+
   //C
   else if(btn1 == LOW && btn2 == HIGH && btn3 == HIGH && btn4 == LOW && btn5 == HIGH && btn6 == HIGH){
     changeDotState("100100");
+    tmrpcm.play("LC.wav");
     Serial.println("C");
+    pause3();
   }
   
   //D
   else if(btn1 == LOW && btn2 == HIGH && btn3 == HIGH && btn4 == LOW && btn5 == LOW && btn6 == HIGH){
     changeDotState("100110");
+    tmrpcm.play("LD.wav");
     Serial.println("D");
+    pause3();
   }
   //E
   else if(btn1 == LOW && btn2 == HIGH && btn3 == HIGH && btn4 == HIGH && btn5 == LOW && btn6 == HIGH){
     changeDotState("100010");
+    tmrpcm.play("LE.wav");
     Serial.println("E");
+    pause3();
   }
   //F
   else if(btn1 == LOW && btn2 == LOW && btn3 == HIGH && btn4 == LOW && btn5 == HIGH && btn6 == HIGH){
     changeDotState("110100");
+    tmrpcm.play("LF.wav");
     Serial.println("F");
+    pause3();
   }
   //G
   else if(btn1 == LOW && btn2 == LOW && btn3 == HIGH && btn4 == LOW && btn5 == LOW && btn6 == HIGH){
     changeDotState("110110");
+    tmrpcm.play("LG.wav");
     Serial.println("G");
+    pause3();
   }
   //H
   else if(btn1 == LOW && btn2 == LOW && btn3 == HIGH && btn4 == HIGH && btn5 == LOW && btn6 == HIGH){
     changeDotState("110010");
+    tmrpcm.play("LH.wav");
     Serial.println("H");
+    pause3();
   }
   //I
   else if(btn1 == HIGH && btn2 == LOW && btn3 == HIGH && btn4 == LOW && btn5 == HIGH && btn6 == HIGH){
     changeDotState("010100");
+    tmrpcm.play("LI.wav");
     Serial.println("I");
+    pause3();
   }
   //J
   else if(btn1 == HIGH && btn2 == LOW && btn3 == HIGH && btn4 == LOW && btn5 == LOW && btn6 == HIGH){
     changeDotState("010110");
+    tmrpcm.play("LJ.wav");
     Serial.println("J");
+    pause3();
   }
   //K
   else if(btn1 == LOW && btn2 == HIGH && btn3 == LOW && btn4 == HIGH && btn5 == HIGH && btn6 == HIGH){
     changeDotState("101000");
+    tmrpcm.play("LK.wav");
     Serial.println("K");
+    pause3();
   }
   //L
   else if(btn1 == LOW && btn2 == LOW && btn3 == LOW && btn4 == HIGH && btn5 == HIGH && btn6 == HIGH){
     changeDotState("111000");
+    tmrpcm.play("LL.wav");
     Serial.println("L");
+    pause3();
   }
   //M
   else if(btn1 == LOW && btn2 == HIGH && btn3 == LOW && btn4 == LOW && btn5 == HIGH && btn6 == HIGH){
     changeDotState("101100");
+    tmrpcm.play("LM.wav");
     Serial.println("M");
+    pause3();
   }
   //N
   else if(btn1 == LOW && btn2 == HIGH && btn3 == LOW && btn4 == LOW && btn5 == LOW && btn6 == HIGH){
     changeDotState("101110");
+    tmrpcm.play("LN.wav");
     Serial.println("N");
+    pause3();
   }
   //O
   else if(btn1 == LOW && btn2 == HIGH && btn3 == LOW && btn4 == HIGH && btn5 == LOW && btn6 == HIGH){
     changeDotState("101010");
+    tmrpcm.play("LO.wav");
     Serial.println("O");
+    pause3();
   }
   //P
   else if(btn1 == LOW && btn2 == LOW && btn3 == LOW && btn4 == LOW && btn5 == HIGH && btn6 == HIGH){
     changeDotState("111100");
+    tmrpcm.play("LP.wav");
     Serial.println("P");
+    pause3();
   }
   //Q
   else if(btn1 == LOW && btn2 == LOW && btn3 == LOW && btn4 == LOW && btn5 == LOW && btn6 == HIGH){
     changeDotState("111110");
+    tmrpcm.play("LQ.wav");
     Serial.println("Q");
+    pause3();
   }
   //R
   else if(btn1 == LOW && btn2 == LOW && btn3 == LOW && btn4 == HIGH && btn5 == LOW && btn6 == HIGH){
     changeDotState("111010");
+    tmrpcm.play("LR.wav");
     Serial.println("R");
+    pause3();
   }
   //S
   else if(btn1 == HIGH && btn2 == LOW && btn3 == LOW && btn4 == LOW && btn5 == HIGH && btn6 == HIGH){
     changeDotState("011100");
+    tmrpcm.play("LS.wav");
     Serial.println("S");
+    pause3();
   }
   //T
   else if(btn1 == HIGH && btn2 == LOW && btn3 == LOW && btn4 == LOW && btn5 == LOW && btn6 == HIGH){
     changeDotState("011110");
+    tmrpcm.play("LT.wav");
     Serial.println("T");
+    pause3();
   }
   //U
   else if(btn1 == LOW && btn2 == HIGH && btn3 == LOW && btn4 == HIGH && btn5 == HIGH && btn6 == LOW){
     changeDotState("101001");
+    tmrpcm.play("LU.wav");
     Serial.println("U");
+    pause3();
   }
   //V
   else if(btn1 == LOW && btn2 == LOW && btn3 == LOW && btn4 == HIGH && btn5 == HIGH && btn6 == LOW){
     changeDotState("111001");
+    tmrpcm.play("LV.wav");
     Serial.println("V");
+    pause3();
   }
   //W
   else if(btn1 == HIGH && btn2 == LOW && btn3 == HIGH && btn4 == LOW && btn5 == LOW && btn6 == LOW){
     changeDotState("010111");
+    tmrpcm.play("LW.wav");
     Serial.println("W");
+    pause3();
   }
   //X
   else if(btn1 == LOW && btn2 == HIGH && btn3 == LOW && btn4 == LOW && btn5 == HIGH && btn6 == LOW){
     changeDotState("101101");
+    tmrpcm.play("LX.wav");
     Serial.println("X");
+    pause3();
   }
   //Y
   else if(btn1 == LOW && btn2 == HIGH && btn3 == LOW && btn4 == LOW && btn5 == LOW && btn6 == LOW){
     changeDotState("101111");
+    tmrpcm.play("LY.wav");
     Serial.println("Y");
+    pause3();
   }
   //Z
   else if(btn1 == LOW && btn2 == HIGH && btn3 == LOW && btn4 == HIGH && btn5 == LOW && btn6 == LOW){
     changeDotState("101011");
+    tmrpcm.play("LZ.wav");
     Serial.println("Z");
+    pause3();
   }
   else{
     Serial.println("Wrong");
@@ -1047,632 +1278,1297 @@ void Check() {
 //Free mode
 void freeMode() {
   readInput();
-  on();
-  off();
-  checkMode();
+  //on();
+  //off();
+  Check();
+  //checkMode();
 }
 
 //Tutorial mode
 void tutorial() {
-
-  int passedIntButton;
   
   //btns
+  tmrpcm.play("A0.wav");
   Serial.println("Welcome to pinDOTS!");
-  pause1();
+  pause5();
+  tmrpcm.play("B0.wav");
   Serial.println("On your left you have 6 btns. On your right you have 6 dots. Can you feel the buttons on your left? Try pressing any button.");
-  pause1();
+  //pause5();
   //Check if any buttons were pressed!
   checkIfClicked();
+  tmrpcm.play("C0.wav");
   Serial.println("Very Good!");
-  pause1();
+  pause5();
+  tmrpcm.play("D0.wav");
+  delay(6000);
   Serial.println("You can press these btns to push down and pop up the dots! If you press the first btn, the first dot will pop up,if you press the first btn again, the first dot will push down! So let us start our tutorial! ");
-  pause1();
-  
+  pause10();
+
+  pause3();
+  tmrpcm.play("E0.wav");
+  delay(2000);
   Serial.println("Try pressing the first btn!");
-  checkBtnStatus(1);
+  checkbtn1();
   Serial.println("Great! You were able to press the first btn! Now try to feel the first dot! You have 10 seconds to feel the dot!");
+  tmrpcm.play("F0.wav");
+  delay(10000);
   changeDotState("100000");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
-  
+
+  tmrpcm.play("G0.wav");
+  delay(4000);
   Serial.println("Now try pressing the second btn!");
-  checkBtnStatus(2);
+  checkbtn2();
   Serial.println("Great! You were able to press the second btn! Now try to feel the second dot! You have 10 seconds to feel the dot!");
+  tmrpcm.play("H0.wav");
+  delay(9000);
   changeDotState("010000");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
-  
+
+  tmrpcm.play("I0.wav");
+  delay(3000);
   Serial.println("Now try pressing the third btn!");
-  checkBtnStatus(3);
+  checkbtn3();
   Serial.println("Great! You were able to press the third btn! Now try to feel the third dot! You have 10 seconds to feel the dot!");
+  tmrpcm.play("J0.wav");
+  delay(9000);
   changeDotState("001000");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
-  
+
+  tmrpcm.play("K0.wav");
+  delay(3000);
   Serial.println("Now try pressing the fourth btn!");
-  checkBtnStatus(4);
+  checkbtn4();
   Serial.println("Great! You were able to press the fourth btn! Now try to feel the fourth dot! You have 10 seconds to feel the dot!");
+  tmrpcm.play("L0.wav");
+  delay(9000);
   changeDotState("000100");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
-  
+
+  tmrpcm.play("M0.wav");
+  delay(3000);
   Serial.println("Now try pressing the fifth btn!");
-  checkBtnStatus(5);
+  checkbtn5();
   Serial.println("Great! You were able to press the fifth btn! Now try to feel the fifth dot! You have 10 seconds to feel the dot!");
+  tmrpcm.play("N0.wav");
+  delay(9000);
   changeDotState("000010");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
-  
+
+  tmrpcm.play("O0.wav");
+  delay(3000);
   Serial.println("Try pressing the sixth btn!");
-  checkBtnStatus(6);
+  checkbtn6();
   Serial.println("Great! You were able to press the sixth btn! Now try to feel the sixth dot! You have 10 seconds to feel the dot!");
+  tmrpcm.play("P0.wav");
+  delay(10000);
   changeDotState("000001");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
-  
+
+  tmrpcm.play("Q0.wav");
   Serial.println("Great! You were able to press all the btns! Very good!");
-  pause1();
-  
+  pause5();
+  tmrpcm.play("R.wav");
   Serial.println("Now let us practice the braille alphabets from A - Z!");
-  pause1();
+  pause5();
   
   //Alphabets
 
   //A
+  tmrpcm.play("A1.wav");
+  delay(2000);
   Serial.println("Press the first btn!");
-  checkBtnStatus(1);
+  checkAlpha1();
+  tmrpcm.play("A2.wav");
+  delay(6000);
   Serial.println("Great! You have pressed A! You have 10 seconds to feel the dot!");
   changeDotState("100000");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
 
   //B
+  tmrpcm.play("B1.wav");
+  delay(2000);
   Serial.println("Press the first btn!");
-  checkBtnStatus(1);
+  checkAlpha1();
   changeDotState("100000");
   Serial.println("Press the second btn!");
-  checkBtnStatus(2);
+  checkAlpha2();
   changeDotState("010000");
+  tmrpcm.play("B3.wav");
   Serial.println("Great! You have pressed B! You have 10 seconds to feel the dot!");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
 
   //C
   Serial.println("Press the first btn!");
-  checkBtnStatus(1);
+  checkAlpha1();
   changeDotState("100000");
   Serial.println("Press the fourth btn!");
-  checkBtnStatus(4);
+  checkAlpha4();
   changeDotState("000100");
+  tmrpcm.play("C3.wav");
   Serial.println("Great! You have pressed C! You have 10 seconds to feel the dot!");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
 
   //D
   Serial.println("Press the first btn!");
-  checkBtnStatus(1);
+  checkAlpha1();
   changeDotState("100000");
   Serial.println("Press the fourth btn!");
-  checkBtnStatus(4);
+  checkAlpha4();
   changeDotState("000100");
   Serial.println("Press the fifth btn!");
-  checkBtnStatus(5);
+  checkAlpha5();
   changeDotState("000010");
+  tmrpcm.play("D4.wav");
   Serial.println("Great! You have pressed D! You have 10 seconds to feel the dot!");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
 
   //E
   Serial.println("Press the first btn!");
-  checkBtnStatus(1);
+  checkAlpha1();
   changeDotState("100000");
   Serial.println("Press the fifth btn!");
-  checkBtnStatus(5);
+  checkAlpha5();
   changeDotState("000010");
+  tmrpcm.play("E3.wav");
   Serial.println("Great! You have pressed E! You have 10 seconds to feel the dot!");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
 
   //F
   Serial.println("Press the first btn!");
-  checkBtnStatus(1);
+  checkAlpha1();
   changeDotState("100000");
   Serial.println("Press the second btn!");
-  checkBtnStatus(2);
+  checkAlpha2();
   changeDotState("010000");
   Serial.println("Press the fourth btn!");
-  checkBtnStatus(4);
+  checkAlpha4();
   changeDotState("000100");
+  tmrpcm.play("F4.wav");
   Serial.println("Great! You have pressed F! You have 10 seconds to feel the dot!");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
 
   //G
   Serial.println("Press the first btn!");
-  checkBtnStatus(1);
+  checkAlpha1();
   changeDotState("100000");
   Serial.println("Press the second btn!");
-  checkBtnStatus(2);
+  checkAlpha2();
   changeDotState("010000");
   Serial.println("Press the fourth btn!");
-  checkBtnStatus(4);
+  checkAlpha4();
   changeDotState("000100");
   Serial.println("Press the fifth btn!");
-  checkBtnStatus(5);
+  checkAlpha5();
   changeDotState("000010");
+  tmrpcm.play("G5.wav");
   Serial.println("Great! You have pressed G! You have 10 seconds to feel the dot!");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
 
   //H
   Serial.println("Press the first btn!");
-  checkBtnStatus(1);
+  checkAlpha1();
   changeDotState("100000");
   Serial.println("Press the second btn!");
-  checkBtnStatus(2);
+  checkAlpha2();
   changeDotState("010000");
   Serial.println("Press the fifth btn!");
-  checkBtnStatus(5);
+  checkAlpha5();
   changeDotState("000010");
+  tmrpcm.play("H4.wav");
   Serial.println("Great! You have pressed H! You have 10 seconds to feel the dot!");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
 
   //I
   Serial.println("Press the second btn!");
-  checkBtnStatus(2);
+  checkAlpha2();
   changeDotState("010000");
   Serial.println("Press the fourth btn!");
-  checkBtnStatus(4);
+  checkAlpha4();
   changeDotState("000100");
+  tmrpcm.play("I3.wav");
   Serial.println("Great! You have pressed I! You have 10 seconds to feel the dot!");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
 
   //J
   Serial.println("Press the second btn!");
-  checkBtnStatus(2);
+  checkAlpha2();
   changeDotState("010000");
+  Serial.println("Press the fourth btn!");
+  checkAlpha4();
+  changeDotState("000100");
   Serial.println("Press the fifth btn!");
-  checkBtnStatus(5);
+  checkAlpha5();
   changeDotState("000010");
-  Serial.println("Press the six btn!");
-  checkBtnStatus(6);
-  changeDotState("000001");
+  tmrpcm.play("J4.wav");
   Serial.println("Great! You have pressed J! You have 10 seconds to feel the dot!");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
 
   //K
   Serial.println("Press the first btn!");
-  checkBtnStatus(1);
+  checkAlpha1();
   changeDotState("100000");
   Serial.println("Press the third btn!");
-  checkBtnStatus(3);
+  checkAlpha3();
   changeDotState("001000");
+  tmrpcm.play("K3.wav");
   Serial.println("Great! You have pressed K! You have 10 seconds to feel the dot!");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
 
   //L
   Serial.println("Press the first btn!");
-  checkBtnStatus(1);
+  checkAlpha1();
   changeDotState("100000");
   Serial.println("Press the second btn!");
-  checkBtnStatus(2);
+  checkAlpha2();
   changeDotState("010000");
   Serial.println("Press the third btn!");
-  checkBtnStatus(3);
+  checkAlpha3();
   changeDotState("001000");
+  tmrpcm.play("L4.wav");
   Serial.println("Great! You have pressed L! You have 10 seconds to feel the dot!");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
 
   //M
   Serial.println("Press the first btn!");
-  checkBtnStatus(1);
+  checkAlpha1();
   changeDotState("100000");
   Serial.println("Press the third btn!");
-  checkBtnStatus(3);
+  checkAlpha3();
   changeDotState("001000");
   Serial.println("Press the fourth btn!");
-  checkBtnStatus(4);
+  checkAlpha4();
   changeDotState("000100");
+  tmrpcm.play("M4.wav");
   Serial.println("Great! You have pressed M! You have 10 seconds to feel the dot!");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
 
   //N
   Serial.println("Press the first btn!");
-  checkBtnStatus(1);
+  checkAlpha1();
   changeDotState("100000");
   Serial.println("Press the third btn!");
-  checkBtnStatus(3);
+  checkAlpha3();
   changeDotState("001000");
   Serial.println("Press the fourth btn!");
-  checkBtnStatus(4);
+  checkAlpha4();
   changeDotState("000100");
   Serial.println("Press the fifth btn!");
-  checkBtnStatus(5);
+  checkAlpha5();
   changeDotState("000010");
+  tmrpcm.play("N5.wav");
   Serial.println("Great! You have pressed N! You have 10 seconds to feel the dot!");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
 
   //O
   Serial.println("Press the first btn!");
-  checkBtnStatus(1);
+  checkAlpha1();
   changeDotState("100000");
   Serial.println("Press the third btn!");
-  checkBtnStatus(3);
+  checkAlpha3();
   changeDotState("001000");
   Serial.println("Press the fifth btn!");
-  checkBtnStatus(5);
+  checkAlpha5();
   changeDotState("000010");
+  tmrpcm.play("O4.wav");
   Serial.println("Great! You have pressed O! You have 10 seconds to feel the dot!");
-  pause1();
+  pause5();
   resetOutputPin();
 
   //P
   Serial.println("Press the first btn!");
-  checkBtnStatus(1);
+  checkAlpha1();
   changeDotState("100000");
   Serial.println("Press the second btn!");
-  checkBtnStatus(2);
+  checkAlpha2();
   changeDotState("0100000");
   Serial.println("Press the third btn!");
-  checkBtnStatus(3);
+  checkAlpha3();
   changeDotState("001000");
   Serial.println("Press the fourth btn!");
-  checkBtnStatus(4);
+  checkAlpha4();
   changeDotState("000100");
+  tmrpcm.play("P5.wav");
   Serial.println("Great! You have pressed P! You have 10 seconds to feel the dot!");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
 
   //Q
   Serial.println("Press the first btn!");
-  checkBtnStatus(1);
+  checkAlpha1();
   changeDotState("100000");
   Serial.println("Press the second btn!");
-  checkBtnStatus(2);
+  checkAlpha2();
   changeDotState("010000");
   Serial.println("Press the third btn!");
-  checkBtnStatus(3);
+  checkAlpha3();
   changeDotState("001000");
   Serial.println("Press the fourth btn!");
-  checkBtnStatus(4);
+  checkAlpha4();
   changeDotState("000100");
   Serial.println("Press the fifth btn!");
-  checkBtnStatus(5);
+  checkAlpha5();
   changeDotState("000010");
+  tmrpcm.play("Q6.wav");
   Serial.println("Great! You have pressed Q! You have 10 seconds to feel the dot!");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
 
   //R
   Serial.println("Press the first btn!");
-  checkBtnStatus(1);
+  checkAlpha1();
   changeDotState("100000");
   Serial.println("Press the second btn!");
-  checkBtnStatus(2);
+  checkAlpha2();
   changeDotState("010000");
   Serial.println("Press the third btn!");
-  checkBtnStatus(3);
+  checkAlpha3();
   changeDotState("001000");
   Serial.println("Press the fifth btn!");
-  checkBtnStatus(5);
+  checkAlpha5();
   changeDotState("000010");
+  tmrpcm.play("R5.wav");
   Serial.println("Great! You have pressed R! You have 10 seconds to feel the dot!");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
 
   //S
   Serial.println("Press the second btn!");
-  checkBtnStatus(2);
+  checkAlpha2();
   changeDotState("010000");
   Serial.println("Press the third btn!");
-  checkBtnStatus(3);
+  checkAlpha3();
   changeDotState("001000");
   Serial.println("Press the fourth btn!");
-  checkBtnStatus(4);
+  checkAlpha4();
   changeDotState("000100");
+  tmrpcm.play("S4.wav");
   Serial.println("Great! You have pressed S! You have 10 seconds to feel the dot!");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
 
   //T
   Serial.println("Press the second btn!");
-  checkBtnStatus(2);
+  checkAlpha2();
   changeDotState("010000");
   Serial.println("Press the third btn!");
-  checkBtnStatus(3);
+  checkAlpha3();
   changeDotState("001000");
   Serial.println("Press the fourth btn!");
-  checkBtnStatus(4);
+  checkAlpha4();
   changeDotState("000100");
   Serial.println("Press the fifth btn!");
-  checkBtnStatus(5);
+  checkAlpha5();
   changeDotState("000010");
+  tmrpcm.play("T5.wav");
   Serial.println("Great! You have pressed T! You have 10 seconds to feel the dot!");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
 
   //U
   Serial.println("Press the first btn!");
-  checkBtnStatus(1);
+  checkAlpha1();
   changeDotState("100000");
   Serial.println("Press the third btn!");
-  checkBtnStatus(3);
+  checkAlpha3();
   changeDotState("001000");
   Serial.println("Press the sixth btn!");
-  checkBtnStatus(6);
+  checkAlpha6();
   changeDotState("000001");
+  tmrpcm.play("U4.wav");
   Serial.println("Great! You have pressed U! You have 10 seconds to feel the dot!");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
 
   //V
   Serial.println("Press the first btn!");
-  checkBtnStatus(1);
+  checkAlpha1();
   changeDotState("100000");
   Serial.println("Press the second btn!");
-  checkBtnStatus(2);
+  checkAlpha2();
   changeDotState("010000");
   Serial.println("Press the third btn!");
-  checkBtnStatus(3);
+  checkAlpha3();
   changeDotState("001000");
   Serial.println("Press the sixth btn!");
-  checkBtnStatus(6);
+  checkAlpha6();
   changeDotState("000001");
+  tmrpcm.play("V5.wav");
   Serial.println("Great! You have pressed V! You have 10 seconds to feel the dot!");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
 
   //W
   Serial.println("Press the second btn!");
-  checkBtnStatus(2);
+  checkAlpha2();
   changeDotState("010000");
   Serial.println("Press the fourth btn!");
-  checkBtnStatus(4);
+  checkAlpha4();
   changeDotState("000100");
   Serial.println("Press the fifth btn!");
-  checkBtnStatus(5);
+  checkAlpha5();
   changeDotState("000010");
   Serial.println("Press the sixth btn!");
-  checkBtnStatus(6);
+  checkAlpha6();
   changeDotState("000001");
+  tmrpcm.play("W5.wav");
   Serial.println("Great! You have pressed W! You have 10 seconds to feel the dot!");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
 
   //X
   Serial.println("Press the first btn!");
-  checkBtnStatus(1);
+  checkAlpha1();
   changeDotState("100000");
   Serial.println("Press the third btn!");
-  checkBtnStatus(3);
+  checkAlpha3();
   changeDotState("001000");
   Serial.println("Press the fourth btn!");
-  checkBtnStatus(4);
+  checkAlpha4();
   changeDotState("000100");
   Serial.println("Press the sixth btn!");
-  checkBtnStatus(6);
+  checkAlpha6();
   changeDotState("000001");
+  tmrpcm.play("X5.wav");
   Serial.println("Great! You have pressed X! You have 10 seconds to feel the dot!");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
 
   //Y
   Serial.println("Press the first btn!");
-  checkBtnStatus(1);
+  checkAlpha1();
   changeDotState("100000");
   Serial.println("Press the third btn!");
-  checkBtnStatus(3);
+  checkAlpha3();
   changeDotState("001000");
   Serial.println("Press the fourth btn!");
-  checkBtnStatus(4);
+  checkAlpha4();
   changeDotState("000100");
   Serial.println("Press the fifth btn!");
-  checkBtnStatus(5);
+  checkAlpha5();
   changeDotState("000010");
   Serial.println("Press the sixth btn!");
-  checkBtnStatus(6);
+  checkAlpha6();
   changeDotState("000001");
+  tmrpcm.play("Y6.wav");
   Serial.println("Great! You have pressed Y! You have 10 seconds to feel the dot!");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
 
   //Z
   Serial.println("Press the first btn!");
-  checkBtnStatus(1);
+  checkAlpha1();
   changeDotState("100000");
   Serial.println("Press the third btn!");
-  checkBtnStatus(3);
+  checkAlpha3();
   changeDotState("001000");
   Serial.println("Press the fifth btn!");
-  checkBtnStatus(5);
+  checkAlpha5();
   changeDotState("000010");
   Serial.println("Press the sixth btn!");
-  checkBtnStatus(6);
+  checkAlpha6();
   changeDotState("000001");
+  tmrpcm.play("Z5.wav");
   Serial.println("Great! You have pressed Z! You have 10 seconds to feel the dot!");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
 
   //Numbers
 
   //1
   Serial.println("Press the first btn!");
-  checkBtnStatus(1);
+  checkAlpha1();
   Serial.println("Great! You have pressed 1! You have 10 seconds to feel the dot!");
   changeDotState("100000");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
 
   //2
   Serial.println("Press the first btn!");
-  checkBtnStatus(1);
+  checkAlpha1();
   changeDotState("100000");
   Serial.println("Press the second btn!");
-  checkBtnStatus(2);
+  checkAlpha2();
   changeDotState("010000");
   Serial.println("Great! You have pressed 2! You have 10 seconds to feel the dot!");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
 
   //3
   Serial.println("Press the first btn!");
-  checkBtnStatus(1);
+  checkAlpha1();
   changeDotState("100000");
   Serial.println("Press the fourth btn!");
-  checkBtnStatus(4);
+  checkAlpha4();
   changeDotState("000100");
   Serial.println("Great! You have pressed 3! You have 10 seconds to feel the dot!");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
 
   //4
   Serial.println("Press the first btn!");
-  checkBtnStatus(1);
+  checkAlpha1();
   changeDotState("100000");
   Serial.println("Press the fourth btn!");
-  checkBtnStatus(4);
+  checkAlpha4();
   changeDotState("000100");
   Serial.println("Press the fifth btn!");
-  checkBtnStatus(5);
+  checkAlpha5();
   changeDotState("000010");
   Serial.println("Great! You have pressed 4! You have 10 seconds to feel the dot!");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
 
   //5
   Serial.println("Press the first btn!");
-  checkBtnStatus(1);
+  checkAlpha1();
   changeDotState("100000");
   Serial.println("Press the fifth btn!");
-  checkBtnStatus(5);
+  checkAlpha5();
   changeDotState("000010");
   Serial.println("Great! You have pressed 5! You have 10 seconds to feel the dot!");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
 
   //6
   Serial.println("Press the first btn!");
-  checkBtnStatus(1);
+  checkAlpha1();
   changeDotState("100000");
   Serial.println("Press the second btn!");
-  checkBtnStatus(2);
+  checkAlpha2();
   changeDotState("010000");
   Serial.println("Press the fourth btn!");
-  checkBtnStatus(4);
+  checkAlpha4();
   changeDotState("000100");
   Serial.println("Great! You have pressed 6! You have 10 seconds to feel the dot!");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
 
   //7
   Serial.println("Press the first btn!");
-  checkBtnStatus(1);
+  checkAlpha1();
   changeDotState("100000");
   Serial.println("Press the second btn!");
-  checkBtnStatus(2);
+  checkAlpha2();
   changeDotState("010000");
   Serial.println("Press the fourth btn!");
-  checkBtnStatus(4);
+  checkAlpha4();
   changeDotState("000100");
   Serial.println("Press the fifth btn!");
-  checkBtnStatus(5);
+  checkAlpha5();
   changeDotState("000010");
   Serial.println("Great! You have pressed 7! You have 10 seconds to feel the dot!");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
 
   //8
   Serial.println("Press the first btn!");
-  checkBtnStatus(1);
+  checkAlpha1();
   changeDotState("100000");
   Serial.println("Press the second btn!");
-  checkBtnStatus(2);
+  checkAlpha2();
   changeDotState("010000");
   Serial.println("Press the fifth btn!");
-  checkBtnStatus(5);
+  checkAlpha5();
   changeDotState("000010");
   Serial.println("Great! You have pressed 8! You have 10 seconds to feel the dot!");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
 
   //9
   Serial.println("Press the second btn!");
-  checkBtnStatus(2);
+  checkAlpha2();
   changeDotState("010000");
   Serial.println("Press the fourth btn!");
-  checkBtnStatus(4);
+  checkAlpha4();
   changeDotState("000100");
   Serial.println("Great! You have pressed 9! You have 10 seconds to feel the dot!");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
 
   //0
   Serial.println("Press the second btn!");
-  checkBtnStatus(2);
+  checkAlpha2();
   changeDotState("010000");
   Serial.println("Press the fifth btn!");
-  checkBtnStatus(5);
+  checkAlpha5();
   changeDotState("000010");
   Serial.println("Press the six btn!");
-  checkBtnStatus(6);
+  checkAlpha6();
   changeDotState("000001");
   Serial.println("Great! You have pressed 0! You have 10 seconds to feel the dot!");
-  pause1();
-  resetBool();
+  pause5();
   resetOutputPin();
 
   Serial.println("Congratulations! You have completed the tutorial!");
 
   checkMode();
 }
+
+/*
+//Tutorial mode
+void tutorial() {
+
+  resetOutputPin();
+  
+  //btns
+  tmrpcm.play("A0.wav");
+  Serial.println("Welcome to pinDOTS!");
+  pause5();
+  tmrpcm.play("B0.wav");
+  Serial.println("On your left you have 6 btns. On your right you have 6 dots. Can you feel the buttons on your left? Try pressing any button.");
+  //pause5();
+  //Check if any buttons were pressed!
+  checkIfClicked();
+  tmrpcm.play("C0.wav");
+  Serial.println("Very Good!");
+  pause5();
+  tmrpcm.play("D0.wav");
+  delay(6000);
+  Serial.println("You can press these btns to push down and pop up the dots! If you press the first btn, the first dot will pop up,if you press the first btn again, the first dot will push down! So let us start our tutorial! ");
+  pause10();
+
+  pause3();
+  tmrpcm.play("E0.wav");
+  delay(2000);
+  Serial.println("Try pressing the first btn!");
+  checkbtn1();
+  Serial.println("Great! You were able to press the first btn! Now try to feel the first dot! You have 10 seconds to feel the dot!");
+  tmrpcm.play("F0.wav");
+  delay(10000);
+  changeDotState("100000");
+  pause5();
+  resetOutputPin();
+
+  tmrpcm.play("G0.wav");
+  delay(4000);
+  Serial.println("Now try pressing the second btn!");
+  checkbtn2();
+  Serial.println("Great! You were able to press the second btn! Now try to feel the second dot! You have 10 seconds to feel the dot!");
+  tmrpcm.play("H0.wav");
+  delay(9000);
+  changeDotState("010000");
+  pause5();
+  resetOutputPin();
+
+  tmrpcm.play("I0.wav");
+  delay(3000);
+  Serial.println("Now try pressing the third btn!");
+  checkbtn3();
+  Serial.println("Great! You were able to press the third btn! Now try to feel the third dot! You have 10 seconds to feel the dot!");
+  tmrpcm.play("J0.wav");
+  delay(9000);
+  changeDotState("001000");
+  pause5();
+  resetOutputPin();
+
+  tmrpcm.play("K0.wav");
+  delay(3000);
+  Serial.println("Now try pressing the fourth btn!");
+  checkbtn4();
+  Serial.println("Great! You were able to press the fourth btn! Now try to feel the fourth dot! You have 10 seconds to feel the dot!");
+  tmrpcm.play("L0.wav");
+  delay(9000);
+  changeDotState("000100");
+  pause5();
+  resetOutputPin();
+
+  tmrpcm.play("M0.wav");
+  delay(3000);
+  Serial.println("Now try pressing the fifth btn!");
+  checkbtn5();
+  Serial.println("Great! You were able to press the fifth btn! Now try to feel the fifth dot! You have 10 seconds to feel the dot!");
+  tmrpcm.play("N0.wav");
+  delay(9000);
+  changeDotState("000010");
+  pause5();
+  resetOutputPin();
+
+  tmrpcm.play("O0.wav");
+  delay(3000);
+  Serial.println("Try pressing the sixth btn!");
+  checkbtn6();
+  Serial.println("Great! You were able to press the sixth btn! Now try to feel the sixth dot! You have 10 seconds to feel the dot!");
+  tmrpcm.play("P0.wav");
+  delay(10000);
+  changeDotState("000001");
+  pause5();
+  resetOutputPin();
+
+  tmrpcm.play("Q0.wav");
+  Serial.println("Great! You were able to press all the btns! Very good!");
+  pause5();
+  tmrpcm.play("R.wav");
+  Serial.println("Now let us practice the braille alphabets from A - Z!");
+  pause5();
+  
+  //Alphabets
+
+  //A
+   tmrpcm.play("A1.wav");
+   delay(2000);
+  Serial.println("Press the first btn!");
+  checkAlpha1();
+  tmrpcm.play("A2.wav");
+  delay(6000);
+  Serial.println("Great! You have pressed A! You have 10 seconds to feel the dot!");
+  changeDotState("100000");
+  pause5();
+  resetOutputPin();
+
+  //B
+  tmrpcm.play("B1.wav");
+   delay(2000);
+  Serial.println("Press the first btn!");
+  checkAlpha1();
+  changeDotState("100000");
+  Serial.println("Press the second btn!");
+  checkAlpha2();
+  changeDotState("010000");
+  tmrpcm.play("B3.wav");
+  Serial.println("Great! You have pressed B! You have 10 seconds to feel the dot!");
+  pause5();
+  resetOutputPin();
+
+  //C
+  Serial.println("Press the first btn!");
+  checkAlpha1();
+  changeDotState("100000");
+  Serial.println("Press the fourth btn!");
+  checkAlpha4();
+  changeDotState("000100");
+  tmrpcm.play("C3.wav");
+  Serial.println("Great! You have pressed C! You have 10 seconds to feel the dot!");
+  pause5();
+  resetOutputPin();
+
+  //D
+  Serial.println("Press the first btn!");
+  checkAlpha1();
+  changeDotState("100000");
+  Serial.println("Press the fourth btn!");
+  checkAlpha4();
+  changeDotState("000100");
+  Serial.println("Press the fifth btn!");
+  checkAlpha5();
+  changeDotState("000010");
+  tmrpcm.play("D4.wav");
+  Serial.println("Great! You have pressed D! You have 10 seconds to feel the dot!");
+  pause5();
+  resetOutputPin();
+
+  //E
+  Serial.println("Press the first btn!");
+  checkAlpha1();
+  changeDotState("100000");
+  Serial.println("Press the fifth btn!");
+  checkAlpha5();
+  changeDotState("000010");
+  tmrpcm.play("E3.wav");
+  Serial.println("Great! You have pressed E! You have 10 seconds to feel the dot!");
+  pause5();
+  resetOutputPin();
+
+  //F
+  Serial.println("Press the first btn!");
+  checkAlpha1();
+  changeDotState("100000");
+  Serial.println("Press the second btn!");
+  checkAlpha2();
+  changeDotState("010000");
+  Serial.println("Press the fourth btn!");
+  checkAlpha4();
+  changeDotState("000100");
+  tmrpcm.play("F4.wav");
+  Serial.println("Great! You have pressed F! You have 10 seconds to feel the dot!");
+  pause5();
+  resetOutputPin();
+
+  //G
+  Serial.println("Press the first btn!");
+  checkAlpha1();
+  changeDotState("100000");
+  Serial.println("Press the second btn!");
+  checkAlpha2();
+  changeDotState("010000");
+  Serial.println("Press the fourth btn!");
+  checkAlpha4();
+  changeDotState("000100");
+  Serial.println("Press the fifth btn!");
+  checkAlpha5();
+  changeDotState("000010");
+  tmrpcm.play("G5.wav");
+  Serial.println("Great! You have pressed G! You have 10 seconds to feel the dot!");
+  pause5();
+  resetOutputPin();
+
+  //H
+  Serial.println("Press the first btn!");
+  checkAlpha1();
+  changeDotState("100000");
+  Serial.println("Press the second btn!");
+  checkAlpha2();
+  changeDotState("010000");
+  Serial.println("Press the fifth btn!");
+  checkAlpha5();
+  changeDotState("000010");
+  tmrpcm.play("H4.wav");
+  Serial.println("Great! You have pressed H! You have 10 seconds to feel the dot!");
+  pause5();
+  resetOutputPin();
+
+  //I
+  Serial.println("Press the second btn!");
+  checkAlpha2();
+  changeDotState("010000");
+  Serial.println("Press the fourth btn!");
+  checkAlpha4();
+  changeDotState("000100");
+  tmrpcm.play("I3.wav");
+  Serial.println("Great! You have pressed I! You have 10 seconds to feel the dot!");
+  pause5();
+  resetOutputPin();
+
+  //J
+  Serial.println("Press the second btn!");
+  checkAlpha2();
+  changeDotState("010000");
+  Serial.println("Press the fourth btn!");
+  checkAlpha4();
+  changeDotState("000100");
+  Serial.println("Press the fifth btn!");
+  checkAlpha5();
+  changeDotState("000010");
+  tmrpcm.play("J4.wav");
+  Serial.println("Great! You have pressed J! You have 10 seconds to feel the dot!");
+  pause5();
+  resetOutputPin();
+
+  //K
+  Serial.println("Press the first btn!");
+  checkAlpha1();
+  changeDotState("100000");
+  Serial.println("Press the third btn!");
+  checkAlpha3();
+  changeDotState("001000");
+  tmrpcm.play("K3.wav");
+  Serial.println("Great! You have pressed K! You have 10 seconds to feel the dot!");
+  pause5();
+  resetOutputPin();
+
+  //L
+  Serial.println("Press the first btn!");
+  checkAlpha1();
+  changeDotState("100000");
+  Serial.println("Press the second btn!");
+  checkAlpha2();
+  changeDotState("010000");
+  Serial.println("Press the third btn!");
+  checkAlpha3();
+  changeDotState("001000");
+  tmrpcm.play("L4.wav");
+  Serial.println("Great! You have pressed L! You have 10 seconds to feel the dot!");
+  pause5();
+  resetOutputPin();
+
+  //M
+  Serial.println("Press the first btn!");
+  checkAlpha1();
+  changeDotState("100000");
+  Serial.println("Press the third btn!");
+  checkAlpha3();
+  changeDotState("001000");
+  Serial.println("Press the fourth btn!");
+  checkAlpha4();
+  changeDotState("000100");
+  tmrpcm.play("M4.wav");
+  Serial.println("Great! You have pressed M! You have 10 seconds to feel the dot!");
+  pause5();
+  resetOutputPin();
+
+  //N
+  Serial.println("Press the first btn!");
+  checkAlpha1();
+  changeDotState("100000");
+  Serial.println("Press the third btn!");
+  checkAlpha3();
+  changeDotState("001000");
+  Serial.println("Press the fourth btn!");
+  checkAlpha4();
+  changeDotState("000100");
+  Serial.println("Press the fifth btn!");
+  checkAlpha5();
+  changeDotState("000010");
+  tmrpcm.play("N5.wav");
+  Serial.println("Great! You have pressed N! You have 10 seconds to feel the dot!");
+  pause5();
+  resetOutputPin();
+
+  //O
+  Serial.println("Press the first btn!");
+  checkAlpha1();
+  changeDotState("100000");
+  Serial.println("Press the third btn!");
+  checkAlpha3();
+  changeDotState("001000");
+  Serial.println("Press the fifth btn!");
+  checkAlpha5();
+  changeDotState("000010");
+  tmrpcm.play("O4.wav");
+  Serial.println("Great! You have pressed O! You have 10 seconds to feel the dot!");
+  pause5();
+  resetOutputPin();
+
+  //P
+  Serial.println("Press the first btn!");
+  checkAlpha1();
+  changeDotState("100000");
+  Serial.println("Press the second btn!");
+  checkAlpha2();
+  changeDotState("0100000");
+  Serial.println("Press the third btn!");
+  checkAlpha3();
+  changeDotState("001000");
+  Serial.println("Press the fourth btn!");
+  checkAlpha4();
+  changeDotState("000100");
+  tmrpcm.play("P5.wav");
+  Serial.println("Great! You have pressed P! You have 10 seconds to feel the dot!");
+  pause5();
+  resetOutputPin();
+
+  //Q
+  Serial.println("Press the first btn!");
+  checkAlpha1();
+  changeDotState("100000");
+  Serial.println("Press the second btn!");
+  checkAlpha2();
+  changeDotState("010000");
+  Serial.println("Press the third btn!");
+  checkAlpha3();
+  changeDotState("001000");
+  Serial.println("Press the fourth btn!");
+  checkAlpha4();
+  changeDotState("000100");
+  Serial.println("Press the fifth btn!");
+  checkAlpha5();
+  changeDotState("000010");
+  tmrpcm.play("Q6.wav");
+  Serial.println("Great! You have pressed Q! You have 10 seconds to feel the dot!");
+  pause5();
+  resetOutputPin();
+
+  //R
+  Serial.println("Press the first btn!");
+  checkAlpha1();
+  changeDotState("100000");
+  Serial.println("Press the second btn!");
+  checkAlpha2();
+  changeDotState("010000");
+  Serial.println("Press the third btn!");
+  checkAlpha3();
+  changeDotState("001000");
+  Serial.println("Press the fifth btn!");
+  checkAlpha5();
+  changeDotState("000010");
+  tmrpcm.play("R5.wav");
+  Serial.println("Great! You have pressed R! You have 10 seconds to feel the dot!");
+  pause5();
+  resetOutputPin();
+
+  //S
+  Serial.println("Press the second btn!");
+  checkAlpha2();
+  changeDotState("010000");
+  Serial.println("Press the third btn!");
+  checkAlpha3();
+  changeDotState("001000");
+  Serial.println("Press the fourth btn!");
+  checkAlpha4();
+  changeDotState("000100");
+  tmrpcm.play("S4.wav");
+  Serial.println("Great! You have pressed S! You have 10 seconds to feel the dot!");
+  pause5();
+  resetOutputPin();
+
+  //T
+  Serial.println("Press the second btn!");
+  checkAlpha2();
+  changeDotState("010000");
+  Serial.println("Press the third btn!");
+  checkAlpha3();
+  changeDotState("001000");
+  Serial.println("Press the fourth btn!");
+  checkAlpha4();
+  changeDotState("000100");
+  Serial.println("Press the fifth btn!");
+  checkAlpha5();
+  changeDotState("000010");
+  tmrpcm.play("T5.wav");
+  Serial.println("Great! You have pressed T! You have 10 seconds to feel the dot!");
+  pause5();
+  resetOutputPin();
+
+  //U
+  Serial.println("Press the first btn!");
+  checkAlpha1();
+  changeDotState("100000");
+  Serial.println("Press the third btn!");
+  checkAlpha3();
+  changeDotState("001000");
+  Serial.println("Press the sixth btn!");
+  checkAlpha6();
+  changeDotState("000001");
+  tmrpcm.play("U4.wav");
+  Serial.println("Great! You have pressed U! You have 10 seconds to feel the dot!");
+  pause5();
+  resetOutputPin();
+
+  //V
+  Serial.println("Press the first btn!");
+  checkAlpha1();
+  changeDotState("100000");
+  Serial.println("Press the second btn!");
+  checkAlpha2();
+  changeDotState("010000");
+  Serial.println("Press the third btn!");
+  checkAlpha3();
+  changeDotState("001000");
+  Serial.println("Press the sixth btn!");
+  checkAlpha6();
+  changeDotState("000001");
+  tmrpcm.play("V5.wav");
+  Serial.println("Great! You have pressed V! You have 10 seconds to feel the dot!");
+  pause5();
+  resetOutputPin();
+
+  //W
+  Serial.println("Press the second btn!");
+  checkAlpha2();
+  changeDotState("010000");
+  Serial.println("Press the fourth btn!");
+  checkAlpha4();
+  changeDotState("000100");
+  Serial.println("Press the fifth btn!");
+  checkAlpha5();
+  changeDotState("000010");
+  Serial.println("Press the sixth btn!");
+  checkAlpha6();
+  changeDotState("000001");
+  tmrpcm.play("W5.wav");
+  Serial.println("Great! You have pressed W! You have 10 seconds to feel the dot!");
+  pause5();
+  resetOutputPin();
+
+  //X
+  Serial.println("Press the first btn!");
+  checkAlpha1();
+  changeDotState("100000");
+  Serial.println("Press the third btn!");
+  checkAlpha3();
+  changeDotState("001000");
+  Serial.println("Press the fourth btn!");
+  checkAlpha4();
+  changeDotState("000100");
+  Serial.println("Press the sixth btn!");
+  checkAlpha6();
+  changeDotState("000001");
+  tmrpcm.play("X5.wav");
+  Serial.println("Great! You have pressed X! You have 10 seconds to feel the dot!");
+  pause5();
+  resetOutputPin();
+
+  //Y
+  Serial.println("Press the first btn!");
+  checkAlpha1();
+  changeDotState("100000");
+  Serial.println("Press the third btn!");
+  checkAlpha3();
+  changeDotState("001000");
+  Serial.println("Press the fourth btn!");
+  checkAlpha4();
+  changeDotState("000100");
+  Serial.println("Press the fifth btn!");
+  checkAlpha5();
+  changeDotState("000010");
+  Serial.println("Press the sixth btn!");
+  checkAlpha6();
+  changeDotState("000001");
+  tmrpcm.play("Y6.wav");
+  Serial.println("Great! You have pressed Y! You have 10 seconds to feel the dot!");
+  pause5();
+  resetOutputPin();
+
+  //Z
+  Serial.println("Press the first btn!");
+  checkAlpha1();
+  changeDotState("100000");
+  Serial.println("Press the third btn!");
+  checkAlpha3();
+  changeDotState("001000");
+  Serial.println("Press the fifth btn!");
+  checkAlpha5();
+  changeDotState("000010");
+  Serial.println("Press the sixth btn!");
+  checkAlpha6();
+  changeDotState("000001");
+  tmrpcm.play("Z5.wav");
+  Serial.println("Great! You have pressed Z! You have 10 seconds to feel the dot!");
+  pause5();
+  resetOutputPin();
+
+  //Numbers
+
+  //1
+  Serial.println("Press the first btn!");
+  checkAlpha1();
+  Serial.println("Great! You have pressed 1! You have 10 seconds to feel the dot!");
+  changeDotState("100000");
+  pause5();
+  resetOutputPin();
+
+  //2
+  Serial.println("Press the first btn!");
+  checkAlpha1();
+  changeDotState("100000");
+  Serial.println("Press the second btn!");
+  checkAlpha2();
+  changeDotState("010000");
+  Serial.println("Great! You have pressed 2! You have 10 seconds to feel the dot!");
+  pause5();
+  resetOutputPin();
+
+  //3
+  Serial.println("Press the first btn!");
+  checkAlpha1();
+  changeDotState("100000");
+  Serial.println("Press the fourth btn!");
+  checkAlpha4();
+  changeDotState("000100");
+  Serial.println("Great! You have pressed 3! You have 10 seconds to feel the dot!");
+  pause5();
+  resetOutputPin();
+
+  //4
+  Serial.println("Press the first btn!");
+  checkAlpha1();
+  changeDotState("100000");
+  Serial.println("Press the fourth btn!");
+  checkAlpha4();
+  changeDotState("000100");
+  Serial.println("Press the fifth btn!");
+  checkAlpha5();
+  changeDotState("000010");
+  Serial.println("Great! You have pressed 4! You have 10 seconds to feel the dot!");
+  pause5();
+  resetOutputPin();
+
+  //5
+  Serial.println("Press the first btn!");
+  checkAlpha1();
+  changeDotState("100000");
+  Serial.println("Press the fifth btn!");
+  checkAlpha5();
+  changeDotState("000010");
+  Serial.println("Great! You have pressed 5! You have 10 seconds to feel the dot!");
+  pause5();
+  resetOutputPin();
+
+  //6
+  Serial.println("Press the first btn!");
+  checkAlpha1();
+  changeDotState("100000");
+  Serial.println("Press the second btn!");
+  checkAlpha2();
+  changeDotState("010000");
+  Serial.println("Press the fourth btn!");
+  checkAlpha4();
+  changeDotState("000100");
+  Serial.println("Great! You have pressed 6! You have 10 seconds to feel the dot!");
+  pause5();
+  resetOutputPin();
+
+  //7
+  Serial.println("Press the first btn!");
+  checkAlpha1();
+  changeDotState("100000");
+  Serial.println("Press the second btn!");
+  checkAlpha2();
+  changeDotState("010000");
+  Serial.println("Press the fourth btn!");
+  checkAlpha4();
+  changeDotState("000100");
+  Serial.println("Press the fifth btn!");
+  checkAlpha5();
+  changeDotState("000010");
+  Serial.println("Great! You have pressed 7! You have 10 seconds to feel the dot!");
+  pause5();
+  resetOutputPin();
+
+  //8
+  Serial.println("Press the first btn!");
+  checkAlpha1();
+  changeDotState("100000");
+  Serial.println("Press the second btn!");
+  checkAlpha2();
+  changeDotState("010000");
+  Serial.println("Press the fifth btn!");
+  checkAlpha5();
+  changeDotState("000010");
+  Serial.println("Great! You have pressed 8! You have 10 seconds to feel the dot!");
+  pause5();
+  resetOutputPin();
+
+  //9
+  Serial.println("Press the second btn!");
+  checkAlpha2();
+  changeDotState("010000");
+  Serial.println("Press the fourth btn!");
+  checkAlpha4();
+  changeDotState("000100");
+  Serial.println("Great! You have pressed 9! You have 10 seconds to feel the dot!");
+  pause5();
+  resetOutputPin();
+
+  //0
+  Serial.println("Press the second btn!");
+  checkAlpha2();
+  changeDotState("010000");
+  Serial.println("Press the fifth btn!");
+  checkAlpha5();
+  changeDotState("000010");
+  Serial.println("Press the six btn!");
+  checkAlpha6();
+  changeDotState("000001");
+  Serial.println("Great! You have pressed 0! You have 10 seconds to feel the dot!");
+  pause5();
+  resetOutputPin();
+
+  Serial.println("Congratulations! You have completed the tutorial!");
+
+  checkMode();
+}
+*/
 
 //Drill mode
 void drill() {
@@ -1689,10 +2585,31 @@ void drill() {
   checkMode();
 }
 
+int ctr=0;
+
 void getMode() {
   //get mode via wemos
   //mode= Serial.read();
   mode = 't';
+
+  switch(mode)
+  {
+
+    case 't':
+      ctr=1;
+      break;
+
+    case 'd':
+      ctr=2;
+      break;
+    
+    case 'f':
+      ctr=3;
+      break;
+
+      default:
+        break;
+  }
 }
 
 void checkMode() {
@@ -1701,24 +2618,70 @@ void checkMode() {
   
   if(mode == 'd'){
     Serial.println(mode);
-    pause3();
+      if(ctr==1)
+    {
+      tmrpcm.play("");
+      delay(1500);
+      ctr=0;
+    }
+    
+    pause5();
     drill();
   }
   else if(mode == 't') {
     Serial.println(mode);
-    pause3();
+    if(ctr==2)
+    {
+      tmrpcm.play("");
+      delay(1500);
+      ctr=0;
+    }
+    pause5();
     tutorial();
   }
   else if(mode == 'f') {
+    if(ctr==3)
+    {
+      //tmrpcm.play("Welcome.wav");
+      ctr=0;
+    }
     Serial.println(mode);
-    pause3();
+    pause5();
     freeMode();
   }
   else {
     Serial.println("mode: " + mode);
-    pause3();
+    pause5();
   }
 }
+
+/*
+void getMode() {
+  //get mode via wemos
+  //mode= Serial.read();
+  mode = 'f';
+}
+
+void checkMode() {
+
+  getMode();
+  
+  if(mode == 'd'){
+    Serial.println(mode);
+    drill();
+  }
+  else if(mode == 't') {
+    Serial.println(mode);
+    tutorial();
+  }
+  else if(mode == 'f') {
+    //Serial.println(mode);
+    freeMode();
+  }
+  else {
+    Serial.println("mode: " + mode);
+  }
+}*/
 
 void loop() {
   // put your main code here, to run repeatedly:
