@@ -436,12 +436,16 @@ void checkAlpha(char receive) {
   {
     case 'A':
     do{
+      tmrpcm.play("DRA.wav");
+      while(tmrpcm.isPlaying() == 1){}
       Serial.println("Press A");
       pause10();
       readInput();
-
+      
       if(btn1 == LOW && btn2 == HIGH && btn3 == HIGH && btn4 == HIGH && btn5 == HIGH && btn6 == HIGH){
         ans = true;
+        tmrpcm.play("LA.wav");
+        while(tmrpcm.isPlaying() == 1){}
       }
       else{
         ans = false;
@@ -453,12 +457,16 @@ void checkAlpha(char receive) {
 
     case 'B':
     do{
+      tmrpcm.play("DRB.wav");
+      while(tmrpcm.isPlaying() == 1){}
       Serial.println("Press B");
       pause10();
       readInput();
 
       if(btn1 == LOW && btn2 == LOW && btn3 == HIGH && btn4 == HIGH && btn5 == HIGH && btn6 == HIGH){
         ans = true;
+        tmrpcm.play("LB.wav");
+        while(tmrpcm.isPlaying() == 1){}
       }
       else{
         ans = false;
@@ -470,12 +478,16 @@ void checkAlpha(char receive) {
 
     case 'C':
     do{
+      tmrpcm.play("DRC.wav");
+      while(tmrpcm.isPlaying() == 1){}
       Serial.println("Press C");
       pause10();
       readInput();
-      
+
       if(btn1 == LOW && btn2 == HIGH && btn3 == HIGH && btn4 == LOW && btn5 == HIGH && btn6 == HIGH){
         ans = true;
+        tmrpcm.play("LC.wav");
+      while(tmrpcm.isPlaying() == 1){}
       }
       else{
         ans = false;
@@ -488,11 +500,15 @@ void checkAlpha(char receive) {
     case 'D':
     do{
       Serial.println("Press D");
+      tmrpcm.play("DRD.wav");
+      while(tmrpcm.isPlaying() == 1){}
       pause10();
       readInput();
 
       if(btn1 == LOW && btn2 == HIGH && btn3 == HIGH && btn4 == LOW && btn5 == LOW && btn6 == HIGH){
         ans = true;
+        tmrpcm.play("LD.wav");
+      while(tmrpcm.isPlaying() == 1){}
       }
       else{
         ans = false;
@@ -505,11 +521,15 @@ void checkAlpha(char receive) {
     case 'E':
     do{
       Serial.println("Press E");
+      tmrpcm.play("DRE.wav");
+      while(tmrpcm.isPlaying() == 1){}
       pause10();
       readInput();
 
       if(btn1 == LOW && btn2 == HIGH && btn3 == HIGH && btn4 == HIGH && btn5 == LOW && btn6 == HIGH){
         ans = true;
+        tmrpcm.play("LE.wav");
+      while(tmrpcm.isPlaying() == 1){}
       }
       else{
         ans = false;
@@ -522,11 +542,15 @@ void checkAlpha(char receive) {
     case 'F':
     do{
       Serial.println("Press F");
+      tmrpcm.play("DRF.wav");
+      while(tmrpcm.isPlaying() == 1){}
       pause10();
       readInput();
 
       if(btn1 == LOW && btn2 == LOW && btn3 == HIGH && btn4 == LOW && btn5 == HIGH && btn6 == HIGH){
         ans = true;
+        tmrpcm.play("LF.wav");
+      while(tmrpcm.isPlaying() == 1){}
       }
       else{
         ans = false;
@@ -539,11 +563,15 @@ void checkAlpha(char receive) {
     case 'G':
     do{
       Serial.println("Press G");
+      tmrpcm.play("DRG.wav");
+      while(tmrpcm.isPlaying() == 1){}
       pause10();
       readInput();
 
       if(btn1 == LOW && btn2 == LOW && btn3 == HIGH && btn4 == LOW && btn5 == LOW && btn6 == HIGH){
         ans = true;
+        tmrpcm.play("LG.wav");
+      while(tmrpcm.isPlaying() == 1){}
       }
       else{
         ans = false;
@@ -556,11 +584,15 @@ void checkAlpha(char receive) {
     case 'H':
     do{
       Serial.println("Press H");
+      tmrpcm.play("DRH.wav");
+      while(tmrpcm.isPlaying() == 1){}
       pause10();
       readInput();
 
       if(btn1 == LOW && btn2 == LOW && btn3 == HIGH && btn4 == HIGH && btn5 == LOW && btn6 == HIGH){
         ans = true;
+        tmrpcm.play("LH.wav");
+      while(tmrpcm.isPlaying() == 1){}
       }
       else{
         ans = false;
@@ -573,11 +605,15 @@ void checkAlpha(char receive) {
     case 'I':
     do{
       Serial.println("Press I");
+      tmrpcm.play("DRI.wav");
+      while(tmrpcm.isPlaying() == 1){}
       pause10();
       readInput();
 
       if(btn1 == HIGH && btn2 == LOW && btn3 == HIGH && btn4 == LOW && btn5 == HIGH && btn6 == HIGH){
         ans = true;
+        tmrpcm.play("LI.wav");
+      while(tmrpcm.isPlaying() == 1){}
       }
       else{
         ans = false;
@@ -590,11 +626,15 @@ void checkAlpha(char receive) {
     case 'J':
     do{
       Serial.println("Press J");
+      tmrpcm.play("DRJ.wav");
+      while(tmrpcm.isPlaying() == 1){}
       pause10();
       readInput();
 
       if(btn1 == HIGH && btn2 == LOW && btn3 == HIGH && btn4 == LOW && btn5 == LOW && btn6 == HIGH){
         ans = true;
+        tmrpcm.play("LJ.wav");
+      while(tmrpcm.isPlaying() == 1){}
       }
       else{
         ans = false;
@@ -607,11 +647,15 @@ void checkAlpha(char receive) {
     case 'K':
     do{
       Serial.println("Press K");
+      tmrpcm.play("DRK.wav");
+      while(tmrpcm.isPlaying() == 1){}
       pause10();
       readInput();
 
       if(btn1 == LOW && btn2 == HIGH && btn3 == LOW && btn4 == HIGH && btn5 == HIGH && btn6 == HIGH){
         ans = true;
+        tmrpcm.play("LK.wav");
+      while(tmrpcm.isPlaying() == 1){}
       }
       else{
         ans = false;
@@ -624,11 +668,15 @@ void checkAlpha(char receive) {
     case 'L':
     do{
       Serial.println("Press L");
+      tmrpcm.play("DRL.wav");
+      while(tmrpcm.isPlaying() == 1){}
       pause10();
       readInput();
 
       if(btn1 == LOW && btn2 == LOW && btn3 == LOW && btn4 == HIGH && btn5 == HIGH && btn6 == HIGH){
         ans = true;
+        tmrpcm.play("LL.wav");
+      while(tmrpcm.isPlaying() == 1){}
       }
       else{
         ans = false;
@@ -641,12 +689,18 @@ void checkAlpha(char receive) {
     case 'M':
     do{
       Serial.println("Press M");
+      tmrpcm.play("DRM.wav");
+      while(tmrpcm.isPlaying() == 1){}
       pause10();
       readInput();
 
       if(btn1 == LOW && btn2 == HIGH && btn3 == LOW && btn4 == LOW && btn5 == HIGH && btn6 == HIGH){
+        ans = true;
+        tmrpcm.play("LM.wav");
+      while(tmrpcm.isPlaying() == 1){}
       }
       else{
+        ans = false;
       }
       
     }while(ans == false);
@@ -656,11 +710,15 @@ void checkAlpha(char receive) {
     case 'N':
     do{
       Serial.println("Press N");
+      tmrpcm.play("DRN.wav");
+      while(tmrpcm.isPlaying() == 1){}
       pause10();
       readInput();
 
       if(btn1 == LOW && btn2 == HIGH && btn3 == LOW && btn4 == LOW && btn5 == LOW && btn6 == HIGH){
         ans = true;
+        tmrpcm.play("LN.wav");
+      while(tmrpcm.isPlaying() == 1){}
       }
       else{
         ans = false;
@@ -673,11 +731,15 @@ void checkAlpha(char receive) {
     case 'O':
     do{
       Serial.println("Press O");
+      tmrpcm.play("DRO.wav");
+      while(tmrpcm.isPlaying() == 1){}
       pause10();
       readInput();
 
       if(btn1 == LOW && btn2 == HIGH && btn3 == LOW && btn4 == HIGH && btn5 == LOW && btn6 == HIGH){
         ans = true;
+        tmrpcm.play("LO.wav");
+      while(tmrpcm.isPlaying() == 1){}
       }
       else{
         ans = false;
@@ -690,11 +752,15 @@ void checkAlpha(char receive) {
     case 'P':
     do{
       Serial.println("Press P");
+      tmrpcm.play("DRP.wav");
+      while(tmrpcm.isPlaying() == 1){}
       pause10();
       readInput();
 
       if(btn1 == LOW && btn2 == LOW && btn3 == LOW && btn4 == LOW && btn5 == HIGH && btn6 == HIGH){
         ans = true;
+        tmrpcm.play("LP.wav");
+      while(tmrpcm.isPlaying() == 1){}
       }
       else{
         ans = false;
@@ -707,11 +773,15 @@ void checkAlpha(char receive) {
     case 'Q':
     do{
       Serial.println("Press Q");
+      tmrpcm.play("DRQ.wav");
+      while(tmrpcm.isPlaying() == 1){}
       pause10();
       readInput();
 
       if(btn1 == LOW && btn2 == LOW && btn3 == LOW && btn4 == LOW && btn5 == LOW && btn6 == HIGH){
         ans = true;
+        tmrpcm.play("LQ.wav");
+      while(tmrpcm.isPlaying() == 1){}
       }
       else{
         ans = false;
@@ -724,11 +794,15 @@ void checkAlpha(char receive) {
     case 'R':
     do{
       Serial.println("Press R");
+      tmrpcm.play("DRR.wav");
+      while(tmrpcm.isPlaying() == 1){}
       pause10();
       readInput();
 
       if(btn1 == LOW && btn2 == LOW && btn3 == LOW && btn4 == HIGH && btn5 == LOW && btn6 == HIGH){
         ans = true;
+        tmrpcm.play("LR.wav");
+      while(tmrpcm.isPlaying() == 1){}
       }
       else{
         ans = false;
@@ -741,11 +815,15 @@ void checkAlpha(char receive) {
     case 'S':
     do{
       Serial.println("Press S");
+      tmrpcm.play("DRS.wav");
+      while(tmrpcm.isPlaying() == 1){}
       pause10();
       readInput();
 
       if(btn1 == HIGH && btn2 == LOW && btn3 == LOW && btn4 == LOW && btn5 == HIGH && btn6 == HIGH){
         ans = true;
+        tmrpcm.play("LS.wav");
+      while(tmrpcm.isPlaying() == 1){}
       }
       else{
         ans = false;
@@ -758,11 +836,15 @@ void checkAlpha(char receive) {
     case 'T':
     do{
       Serial.println("Press T");
+      tmrpcm.play("DRT.wav");
+      while(tmrpcm.isPlaying() == 1){}
       pause10();
       readInput();
 
       if(btn1 == HIGH && btn2 == LOW && btn3 == LOW && btn4 == LOW && btn5 == LOW && btn6 == HIGH){
         ans = true;
+        tmrpcm.play("LT.wav");
+      while(tmrpcm.isPlaying() == 1){}
       }
       else{
         ans = false;
@@ -775,11 +857,15 @@ void checkAlpha(char receive) {
     case 'U':
     do{
       Serial.println("Press U");
+      tmrpcm.play("DRU.wav");
+      while(tmrpcm.isPlaying() == 1){}
       pause10();
       readInput();
 
       if(btn1 == LOW && btn2 == HIGH && btn3 == LOW && btn4 == HIGH && btn5 == HIGH && btn6 == LOW){
         ans = true;
+        tmrpcm.play("LU.wav");
+      while(tmrpcm.isPlaying() == 1){}
       }
       else{
         ans = false;
@@ -792,11 +878,15 @@ void checkAlpha(char receive) {
     case 'V':
     do{
       Serial.println("Press V");
+      tmrpcm.play("DRV.wav");
+      while(tmrpcm.isPlaying() == 1){}
       pause10();
       readInput();
 
       if(btn1 == LOW && btn2 == LOW && btn3 == LOW && btn4 == HIGH && btn5 == HIGH && btn6 == LOW){
         ans = true;
+        tmrpcm.play("LV.wav");
+      while(tmrpcm.isPlaying() == 1){}
       }
       else{
         ans = false;
@@ -809,11 +899,15 @@ void checkAlpha(char receive) {
     case 'W':
     do{
       Serial.println("Press W");
+      tmrpcm.play("DRW.wav");
+      while(tmrpcm.isPlaying() == 1){}
       pause10();
       readInput();
 
       if(btn1 == HIGH && btn2 == LOW && btn3 == HIGH && btn4 == LOW && btn5 == LOW && btn6 == LOW){
         ans = true;
+        tmrpcm.play("LW.wav");
+      while(tmrpcm.isPlaying() == 1){}
       }
       else{
         ans = false;
@@ -826,11 +920,15 @@ void checkAlpha(char receive) {
     case 'X':
     do{
       Serial.println("Press X");
+      tmrpcm.play("DRX.wav");
+      while(tmrpcm.isPlaying() == 1){}
       pause10();
       readInput();
 
       if(btn1 == LOW && btn2 == HIGH && btn3 == LOW && btn4 == LOW && btn5 == HIGH && btn6 == LOW){
         ans = true;
+        tmrpcm.play("LW.wav");
+      while(tmrpcm.isPlaying() == 1){}
       }
       else{
         ans = false;
@@ -843,11 +941,15 @@ void checkAlpha(char receive) {
     case 'Y':
     do{
       Serial.println("Press Y");
+      tmrpcm.play("DRY.wav");
+      while(tmrpcm.isPlaying() == 1){}
       pause10();
       readInput();
 
       if(btn1 == LOW && btn2 == HIGH && btn3 == LOW && btn4 == LOW && btn5 == LOW && btn6 == LOW){
         ans = true;
+        tmrpcm.play("LY.wav");
+      while(tmrpcm.isPlaying() == 1){}
       }
       else{
         ans = false;
@@ -860,11 +962,15 @@ void checkAlpha(char receive) {
     case 'Z':
     do{
       Serial.println("Press Z");
+      tmrpcm.play("DRZ.wav");
+      while(tmrpcm.isPlaying() == 1){}
       pause10();
       readInput();
 
       if(btn1 == LOW && btn2 == HIGH && btn3 == LOW && btn4 == HIGH && btn5 == LOW && btn6 == LOW){
         ans = true;
+        tmrpcm.play("LZ.wav");
+      while(tmrpcm.isPlaying() == 1){}
       }
       else{
         ans = false;
@@ -1273,11 +1379,11 @@ void Check() {
 
 //Free mode
 void freeMode() {
+  delay(3000);
   readInput();
   //on();
   //off();
   Check();
-  checkMode();
 }
 
 //Tutorial mode
@@ -1856,6 +1962,7 @@ void tutorial() {
   checkPressedButton(5);
   checkPressedButton(6);
   
+  /*
   //Numbers
 
   //1
@@ -1990,15 +2097,68 @@ void tutorial() {
   while(tmrpcm.isPlaying() == 1){}
   pause10();
   resetOutputPin();
-
+  */
+  
   Serial.println("Congratulations! You have completed the tutorial!");
 
   checkMode();
 }
 
+void playAudio(String words){
+
+  Serial.println("Word: " + words);
+  
+  if(words == "BEE"){
+    tmrpcm.play("Bee.wav");
+    while(tmrpcm.isPlaying() == 1){}
+  }
+  else if(words == "CAT"){
+    tmrpcm.play("Cat.wav");
+    while(tmrpcm.isPlaying() == 1){}
+  }
+  else if(words == "DOG"){
+    tmrpcm.play("Dog.wav");
+    while(tmrpcm.isPlaying() == 1){}
+  }
+  else if(words == "PET"){
+    tmrpcm.play("Pet.wav");
+    while(tmrpcm.isPlaying() == 1){}
+  }
+  else if(words == "RAT"){
+    tmrpcm.play("Rat.wav");
+    while(tmrpcm.isPlaying() == 1){}
+  }
+  else if(words == "FLY"){
+    tmrpcm.play("Fly.wav");
+    while(tmrpcm.isPlaying() == 1){}
+  }
+  else if(words == "PIG"){
+    tmrpcm.play("Pig.wav");
+    while(tmrpcm.isPlaying() == 1){}
+  }
+  else if(words == "SUN"){
+    tmrpcm.play("Sun.wav");
+    while(tmrpcm.isPlaying() == 1){}
+  }
+  else if(words == "FIT"){
+    tmrpcm.play("Fit.wav");
+    while(tmrpcm.isPlaying() == 1){}
+  }
+  else if(words == "FAT"){
+    tmrpcm.play("Fat.wav");
+    while(tmrpcm.isPlaying() == 1){}
+  }
+}
+
 //Drill mode
 void drill() {
+  
+  tmrpcm.play("WDR.wav");
+  while(tmrpcm.isPlaying() == 1){}
   Serial.println("Welcome to drill mode");
+  tmrpcm.play("WDR1.wav");
+  while(tmrpcm.isPlaying() == 1){}
+  
   String data = str;
   Serial.println("String : " + str);
 
@@ -2035,7 +2195,7 @@ void drill() {
   for(int x = 0; x < wordCount; x++)
   {
     Serial.println(words[x]);
-    delay(1000);
+    playAudio(words[x]);
     String drillWord = words[x];
     drillWord.toCharArray(drillWordArray, 4); //Convert String to Array
     
@@ -2045,42 +2205,39 @@ void drill() {
         delay(1000);
     }
   }
+  
+  tmrpcm.play("WDR2.wav");
+  while(tmrpcm.isPlaying() == 1){}
   checkMode();
 }
 
 int ctr=0;
 
 void getMode(){
+  //str = "freemode";
+  //str = "tutorial";
+  //str = "CAT-DOG-ANT";
+  
   str = Serial.readString();
   str.trim();
-  Serial.println("Hey : " + str);
+  
+  Serial.println("Mode : " + str);
+  
   if(str == "freemode"){
     //mode = 'f';
     Serial.println("Free Mode");
     freeMode();
   }
-  if(str == "tutorial"){
+  else if(str == "tutorial"){
     //mode = 't';
     Serial.println("Tutorial");
     tutorial();
   }
   else if(str.indexOf("-") > 0){
     //mode ='d';
+    Serial.println("Drill Mode");
     drill();
   }
-  
-  /*if(mode == 'd'){
-    Serial.println("Welcome to Drill Mode : " + str);
-    drill();
-  }
-  if(mode == 'f'){
-    Serial.println("Welcome to Free Mode : " + str);
-    freeMode();
-  }
-  if(mode == 't'){
-    Serial.println("Welcome to Tutorial Mode : " + str);
-    tutorial();
-  }*/
 }
 
 void checkMode(){
