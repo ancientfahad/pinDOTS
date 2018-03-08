@@ -2202,6 +2202,8 @@ void drill() {
     for (int i = 0; i < sizeof(drillWordArray) - 1; i++){ //
         Serial.println(drillWordArray[i]);
         checkAlpha(drillWordArray[i]);
+        tmrpcm.play("C0.wav");
+        while(tmrpcm.isPlaying() == 1){}
         delay(1000);
     }
   }
